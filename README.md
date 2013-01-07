@@ -1,4 +1,4 @@
-Cardinalwebdev
+Cardinal Web Dev
 ================
 
 Auto-generated from [Kevin Xu](https://github.com/imkevinxu)'s [Django Project Builder](https://github.com/imkevinxu/django-projectbuilder)
@@ -6,6 +6,7 @@ Auto-generated from [Kevin Xu](https://github.com/imkevinxu)'s [Django Project B
 ### Development Team
 
 * Kevin Xu <kevin@imkevinxu.com>
+* Charlie Guo <charlierguo@gmail.com>
 
 ## Getting Started
 

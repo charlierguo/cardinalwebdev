@@ -14,7 +14,6 @@ TEMPLATE_DEBUG = DEBUG
 DEFAULT_FROM_EMAIL = ''
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.

@@ -13,8 +13,8 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-# class Data(Base):
-#     data = models.CharField(blank=True, null=True, max_length=255)
+class Email(Base):
+    email = models.EmailField(max_length=254)
 
-#     def __unicode__(self):
-#         return u'%s' % (self.data)
+    def __unicode__(self):
+        return u'%s' % (self.email)
