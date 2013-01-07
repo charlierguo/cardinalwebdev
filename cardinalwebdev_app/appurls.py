@@ -6,7 +6,7 @@ from cardinalwebdev.jinja2 import login
 
 def smartlogin(request, **kwargs):
     if request.user.is_authenticated() and 'next' not in request.GET:
-        return redirect('courses')
+        return redirect('index')
     return login(request, **kwargs)
 
 urlpatterns = patterns('cardinalwebdev_app.views',
@@ -14,4 +14,5 @@ urlpatterns = patterns('cardinalwebdev_app.views',
     url(r'^login/$', smartlogin, kwargs=dict(template_name='login.html'), name='login'),
     url(r'^logout/$', logout, kwargs=dict(next_page='/'), name='logout'),
 
+    url(r'^email/$', 'email', name='email'),
 )
