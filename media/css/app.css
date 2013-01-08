@@ -16,7 +16,7 @@
    BASE STYLES
 ----------------------------------------- */
 
-.row { width: 1000px; }
+.row { width: 900px; }
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -51,7 +51,7 @@ footer {
 ----------------------------------------- */
 
 .heading {
-    margin-top: 50px !important;
+    margin-top: 50px;
 }
 
 .heading h1 {
@@ -63,6 +63,40 @@ footer {
 
 .heading .red {
     color: #DD0F28;
+}
+
+#background {
+    padding-top: 50px;
+    margin-top: -50px;
+    background-color: #F0F5FB;
+    background-image: url(/media/images/pattern.png);
+
+    -webkit-animation: animate-bg 18s linear;
+    -moz-animation: animate-bg 18s linear;
+    -o-animation: animate-bg 18s linear;
+    animation: animate-bg 18s linear;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-bottom: 1px dashed #999;
+}
+
+#abovethefold {
+    background: #fff;
+    padding: 20px 30px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-top: 1px dashed #999;
+    border-left: 1px dashed #999;
+    border-right: 1px dashed #999;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+#info p {
+    font-size: 1.6rem;
 }
 
 /* -----------------------------------------

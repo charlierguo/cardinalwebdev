@@ -6,38 +6,42 @@
 
 {% block content %}
 
-<div class="row heading">
-    <div class="twelve columns text-center">
-        <h1 class="red">Practical web development lessons</h1>
-        <h1>for smart and motivated learners</h1>
+<div id="background">
+    <div id="top" class="row heading">
+        <div class="twelve columns text-center">
+            <h1 class="red">Practical web development lessons</h1>
+            <h1>for smart and motivated learners</h1>
+        </div>
     </div>
+
+    <div id="abovethefold">
+        <div>
+            <div class="row">
+                <div class="six columns">
+                    <h3>Build Your Own Web Applications</h3>
+                    <p>If you've ever wanted to learn how to program your own web apps, but didn't know where to start or didn't have the time to take CS142, this class is for you</p>
+                    <p>We're teaching a 9-week lecture series on basic web development. It's low-intensity, but still geared towards getting you the skills you need.</p>
+                </div>
+
+                <div id="info" class="six columns">
+                    <h3>When?</h3>
+                    <p>Tuesdays 7-10pm starting 1/15 for 9 weeks</p>
+
+                    <h3>Where?</h3>
+                    <p>
+                        Arrillaga Wellness Room in Arrillaga Dining Hall <br/>
+                        <a href="http://goo.gl/maps/uIuLB" target="_blank">http://goo.gl/maps/uIuLB</a>
+                    </p>
+                </div>
+            </div>
+
+            {% include 'contactus.html' %}
+        </div>
+    </div>
+
+
 </div>
 
-<div id="abovethefold" class="row">
-    <div class="six columns">
-        <img src="http://placekitten.com/500/300" />
-    </div>
-
-    <div class="six columns">
-        <h3>Build Your Own Web Applications</h3>
-        <p>If you've ever wanted to learn how to program your own web apps, but didn't know where to start or didn't have the time to take CS142, this class is for you</p>
-        <p>We're teaching a 9-week lecture series on basic web development. It's low-intensity, but still geared towards getting you the skills you need.</p>
-    </div>
-</div>
-
-{% include 'contactus.html' %}
-
-<div id="info" class="row">
-    <div class="six columns">
-        <h3>When?</h3>
-        <h4>Tuesdays 7-10pm starting 1/15</h4>
-    </div>
-    <div class="six columns">
-        <h3>Where?</h3>
-        <h4>Arrillaga Wellness Room</h4>
-        <h4><a href="http://goo.gl/maps/uIuLB">http://goo.gl/maps/uIuLB</a></h4>
-    </div>
-</div>
 
 <div class="row heading">
     <div class="twelve columns">
@@ -141,6 +145,8 @@
     </div>
 </div>
 
+{% include 'contactus.html' %}
+
 <div class="row heading">
     <div class="twelve columns">
         <h1>FAQ</h1>
@@ -200,6 +206,8 @@
         <img src="http://vanbrabsongallery.com/yahoo_site_admin/assets/images/square_logo_landscape.17563948_std.png" />
     </div>
 </div>
+
+{% include 'contactus.html' %}
 
 {% endblock %}
 

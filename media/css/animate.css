@@ -94,3 +94,39 @@
     -o-animation-name: shake;
     animation-name: shake;
 }
+
+@-webkit-keyframes animate-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 300px -300px;
+    }
+}
+
+@-moz-keyframes animate-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 300px -300px;
+    }
+}
+
+@-o-keyframes animate-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 300px -300px;
+    }
+}
+
+@keyframes animate-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 300px -300px;
+    }
+}
