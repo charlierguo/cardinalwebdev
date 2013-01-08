@@ -1,5 +1,3 @@
-/* Artfully masterminded by Kevin Xu <kevin@imkevinxu.com> */
-
 /* -----------------------------------------
    SHARED STYLES
 ----------------------------------------- */
@@ -22,7 +20,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #333;
+    color: #444;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,6 +65,79 @@ footer {
     color: #DD0F28;
 }
 
+/* -----------------------------------------
+   CONTACTUS STYLES
+----------------------------------------- */
+
+.contactus input[type=email] {
+    height: 50px;
+    padding: 17px;
+    font-size: 17px;
+}
+
+.contactus .thanks {
+    font-size: 17px;
+    margin-top: 12px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.contactus .submit_button {
+    font-size: 5rem;
+    height: 48px;
+    display: inline-block;
+    cursor: pointer;
+    color: #222;
+}
+
+.contactus button.interested {
+    background-color: #CB1032;
+    background-image: -webkit-linear-gradient(top,#DD0F28,#CB1032);
+    background-image: -moz-linear-gradient(top,#DD0F28,#CB1032);
+    background-image: -ms-linear-gradient(top,#DD0F28,#CB1032);
+    background-image: -o-linear-gradient(top,#DD0F28,#CB1032);
+    background-image: linear-gradient(top,#DD0F28,#CB1032);
+
+    width: 100%;
+    border: 1px solid transparent;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    white-space: nowrap;
+    cursor: default;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
+
+.contactus button.interested:hover {
+    background-color: #BF0F2F;
+    background-image: -webkit-linear-gradient(top,#DD0F28,#BF0F2F);
+    background-image: -moz-linear-gradient(top,#DD0F28,#BF0F2F);
+    background-image: -ms-linear-gradient(top,#DD0F28,#BF0F2F);
+    background-image: -o-linear-gradient(top,#DD0F28,#BF0F2F);
+    background-image: linear-gradient(top,#DD0F28,#BF0F2F);
+    border: 1px solid #B80E2D;
+}
+
+.contactus button.interested:active {
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    background-color: #B00E2C;
+    background-image: -webkit-linear-gradient(top,#DD0F28,#B00E2C);
+    background-image: -moz-linear-gradient(top,#DD0F28,#B00E2C);
+    background-image: -ms-linear-gradient(top,#DD0F28,#B00E2C);
+    background-image: -o-linear-gradient(top,#DD0F28,#B00E2C);
+    background-image: linear-gradient(top,#DD0F28,#B00E2C);
+    border: 1px solid #B80E2D;
+}
 
 
 
