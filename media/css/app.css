@@ -50,18 +50,18 @@ footer {
    HOMEPAGE STYLES
 ----------------------------------------- */
 
-#title {
+.heading {
     margin-top: 50px !important;
 }
 
-#title h1 {
+.heading h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
     font-size: 56px;
     line-height: 0.8;
 }
 
-#title .red {
+.heading .red {
     color: #DD0F28;
 }
 

@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div id="title" class="row">
+<div class="row heading">
     <div class="twelve columns text-center">
         <h1 class="red">Practical web development lessons</h1>
         <h1>for smart and motivated learners</h1>
@@ -15,7 +15,7 @@
 
 <div id="abovethefold" class="row">
     <div class="six columns">
-        <img src="http://placekitten.com/500/300" alt="">
+        <img src="http://placekitten.com/500/300" />
     </div>
 
     <div class="six columns">
@@ -27,178 +27,179 @@
 
 {% include 'contactus.html' %}
 
-
-
-<div class="row">
+<div id="info" class="row">
     <div class="six columns">
         <h3>When?</h3>
-        <h4 style="font-weight: 400;">Tuesdays 7-10pm starting 1/15</h4>
+        <h4>Tuesdays 7-10pm starting 1/15</h4>
     </div>
     <div class="six columns">
         <h3>Where?</h3>
-        <h4 style="font-weight: 400;">Arrillaga Wellness Room</h4>
-        <h4 style="font-weight: 400;"><a href="http://goo.gl/maps/uIuLB">http://goo.gl/maps/uIuLB</a></h4>
+        <h4>Arrillaga Wellness Room</h4>
+        <h4><a href="http://goo.gl/maps/uIuLB">http://goo.gl/maps/uIuLB</a></h4>
+    </div>
+</div>
+
+<div class="row heading">
+    <div class="twelve columns">
+        <h1>Syllabus</h1>
     </div>
 </div>
 
 <div id="curriculum" class="row">
     <div class="twelve columns">
-
-        <h2 id="syllabus">Syllabus</h2>
-        <div class="row syllabus-wrapper">
-            <ul class="accordion syllabus">
-              <li class="">
+        <ul class="accordion">
+            <li>
                 <div class="title">
-                  <h5>Week 1: Introduction &amp; HTML</h5>
+                    <h5>Week 1: Introduction &amp; HTML</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 2: CSS</h5>
+                    <h5>Week 2: CSS</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 3: Python &amp; Django I (Views)</h5>
+                    <h5>Week 3: Python &amp; Django I (Views)</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 4: Django II (Templates, Models)</h5>
+                    <h5>Week 4: Django II (Templates, Models)</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 5: Django III (Migrations, Tricks &amp; Tips)</h5>
+                    <h5>Week 5: Django III (Migrations, Tricks &amp; Tips)</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 6: Git, GitHub &amp; Heroku</h5>
+                    <h5>Week 6: Git, GitHub &amp; Heroku</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 7: JavaScript I (Syntax, jQuery)</h5>
+                    <h5>Week 7: JavaScript I (Syntax, jQuery)</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 8: JavaScript II (AJAX)</h5>
+                    <h5>Week 8: JavaScript II (AJAX)</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-              <li class="">
+            </li>
+            <li>
                 <div class="title">
-                  <h5>Week 9: Other Technologies</h5>
+                    <h5>Week 9: Other Technologies</h5>
                 </div>
-                <!--div class="content"></div-->
-              </li>
-            </ul>
-        </div>
-        <h2 id="course-topics">Course Topics</h2>
-        <div class="row topic-wrapper">
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/html.png" alt="">
-                <h3>HTML &amp; CSS</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/js.png" alt="">
-                <h3>JavaScript</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/python-icon.png" alt="">
-                <h3>Python</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/dj.png" alt="">
-                <h3>Django</h3>
-            </div>
-        </div>
-        <div class="row topic-wrapper">
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/command-line.png" alt="">
-                <h3>Command Line</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/git.png" alt="">
-                <h3>Git &amp; GitHub</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/pairing.png" alt="">
-                <h3>Pair Programming</h3>
-            </div>
-            <div class="three columns course-topic">
-                <img src="http://hackbrightacademy.com/assets/deploy.png" alt="">
-                <h3>Deployment</h3>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 </div>
 
-<div id="faq">
-    <section class="row">
-        <h1 class="title al-c">F.A.Q.</h1>
-        <section class="twelve columns">
-            <h3 class="faq-q">When is the class taught?</h3>
-            <p class="faq-a">
-                The class is taught every Tuesday, from 7pm to 10pm. We won't always take up the entirety of that time with a lecture, but we will be around to answer questions afterwards.
-            </p>
-            <h3>Where does the class meet?</h3>
-            <p class="faq-a">
-                The class will meet in the study room in Arrillaga dining hall.
-            </p>
-            <h3>What is going to be covered?</h3>
-            <p class="faq-a">
-                You can look at the <a href="#curriculum">broad curriculum</a> above, and we'll also be releasing a week-to-week schedule.
-            </p>
-            <h3>Are there pre-requisites?</h3>
-            <p class="faq-a">
-                We ask that you've taken at least CS106A, or the equivalent. Because of the short amount of time we have, we're going to focus more on web application specifics rather than general programming skills. <br /> <br />
-                If you've done the JavaScript and Python courses on <a href="http://www.codecademy.com/">Codecademy</a>, then you're in good shape.
-            </p>
-            <h3>Are all of the lectures mandatory?</h3>
-            <p class="faq-a">
-                They are all strongly recommended. You'll definitely get the best experience and skills by attending them all.
-            </p>
-            <h3>Who is teaching the class?</h3>
-            <p class="faq-a">
-                Check out the <a href="#team">team.</a>
-            </p>
-            <!--h3>How is this different from CS142?</h3-->
-        </section>
-    </section>
+<div class="row heading">
+    <div class="twelve columns">
+        <h1>Course Topics</h1>
+    </div>
 </div>
 
-<div id="team">
-    <section class="row photos">
-        <h1 class="title al-c">Teachers</h1>
-        <section class="four columns course-teacher">
-            <a href="#" class="th"><img src="https://sphotos-a.xx.fbcdn.net/hphotos-ash4/281314_2027095871144_5512365_n.jpg" alt=""> </a>
-            <h4>Charlie Guo</h4>
-            <a href="#" class="work-history"><img src="http://www.kennykao.com/images/projects/palantir-logo.jpg" /></a>
-        </section>
-        <section class="four columns end course-teacher">
-            <a href="" class="th"> <img src="https://sphotos-b.xx.fbcdn.net/hphotos-ash4/223713_4228515075863_784283845_n.jpg" alt=""> </a>
-            <h4>Kevin Xu</h4>
-            <a href="#" class="work-history"><img src="http://www.plugandplaytechcenter.com/sites/default/files/styles/partner-default/public/felicis%20ventures.png" /></a>
-        </section>
-        <section class="four columns end course-teacher">
-            <a href="" class="th"> <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c66.8.414.414/s160x160/282093_1660534712925_7292021_n.jpg" alt="" style="width:100%"> </a>
-            <h4>Kingston Tam</h4>
-            <a href="#" class="work-history"><img src="http://vanbrabsongallery.com/yahoo_site_admin/assets/images/square_logo_landscape.17563948_std.png" /></a>
-        </section>
-    </section>
+<div class="row">
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/html.png" />
+        <h3>HTML &amp; CSS</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/js.png" />
+        <h3>JavaScript</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/python-icon.png" />
+        <h3>Python</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/dj.png" />
+        <h3>Django</h3>
+    </div>
 </div>
 
+<div class="row">
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/command-line.png" />
+        <h3>Command Line</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/git.png" />
+        <h3>Git &amp; GitHub</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/pairing.png" />
+        <h3>Pair Programming</h3>
+    </div>
+    <div class="three columns">
+        <img src="http://hackbrightacademy.com/assets/deploy.png" />
+        <h3>Deployment</h3>
+    </div>
+</div>
 
+<div class="row heading">
+    <div class="twelve columns">
+        <h1>FAQ</h1>
+    </div>
+</div>
+
+<div id="faq" class="row">
+    <div class="twelve columns">
+        <h3>When is the class taught?</h3>
+        <p>
+            The class is taught every Tuesday, from 7pm to 10pm. We won't always take up the entirety of that time with a lecture, but we will be around to answer questions afterwards.
+        </p>
+        <h3>Where does the class meet?</h3>
+        <p>
+            The class will meet in the study room in Arrillaga dining hall.
+        </p>
+        <h3>What is going to be covered?</h3>
+        <p>
+            You can look at the <a href="#curriculum">broad curriculum</a> above, and we'll also be releasing a week-to-week schedule.
+        </p>
+        <h3>Are there pre-requisites?</h3>
+        <p>
+            We ask that you've taken at least CS106A, or the equivalent. Because of the short amount of time we have, we're going to focus more on web application specifics rather than general programming skills. <br /> <br />
+            If you've done the JavaScript and Python courses on <a href="http://www.codecademy.com/">Codecademy</a>, then you're in good shape.
+        </p>
+        <h3>Are all of the lectures mandatory?</h3>
+        <p>
+            They are all strongly recommended. You'll definitely get the best experience and skills by attending them all.
+        </p>
+        <h3>Who is teaching the class?</h3>
+        <p>
+            Check out the <a href="#team">team.</a>
+        </p>
+    </div>
+</div>
+
+<div class="row heading">
+    <div class="twelve columns">
+        <h1>Teachers</h1>
+    </div>
+</div>
+
+<div id="team" class="row">
+    <div class="four columns">
+        <img src="https://sphotos-a.xx.fbcdn.net/hphotos-ash4/281314_2027095871144_5512365_n.jpg" />
+        <h4>Charlie Guo</h4>
+        <img src="http://www.kennykao.com/images/projects/palantir-logo.jpg" />
+    </div>
+    <div class="four columns">
+        <img src="https://sphotos-b.xx.fbcdn.net/hphotos-ash4/223713_4228515075863_784283845_n.jpg" />
+        <h4>Kevin Xu</h4>
+        <img src="http://www.plugandplaytechcenter.com/sites/default/files/styles/partner-default/public/felicis%20ventures.png" />
+    </div>
+    <div class="four columns">
+        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c66.8.414.414/s160x160/282093_1660534712925_7292021_n.jpg" / style="width:100%">
+        <h4>Kingston Tam</h4>
+        <img src="http://vanbrabsongallery.com/yahoo_site_admin/assets/images/square_logo_landscape.17563948_std.png" />
+    </div>
+</div>
 
 {% endblock %}
 
