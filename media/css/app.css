@@ -178,7 +178,6 @@ input:focus, textarea:focus {
 
 #team {
     text-align: center;
-    margin-bottom: 6.972900391rem;
 }
 
 #team h3 {
@@ -202,8 +201,17 @@ input:focus, textarea:focus {
 }
 
 #team img.logo {
-    width: 80%;
+    width: 80% !important;
     padding-top: 10px;
+}
+
+#contactus {
+    margin-bottom: 6.972900391rem;
+}
+
+#contactus h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.291015625rem;
 }
 
 /* -----------------------------------------
@@ -235,7 +243,7 @@ input:focus, textarea:focus {
 .application h3 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 4.291015625rem;
-    margin-bottom: 1.625rem;
+    margin-bottom: 80px;
     line-height: 1.3;
 }
 
