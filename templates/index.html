@@ -23,64 +23,8 @@
     </div>
 </div>
 
-<div class="application">
-    <div class="row">
-    <div class="ten columns centered">
-        {% if application %}
-            <form method="post">{% csrf_token %}
-                <div class="{% if application.name.errors %} error{% endif %}">
-                    <label>Name</label>
-                    {{ application.name|safe }}
-                    {% if application.name.errors %}
-                        {% for error in application.name.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-                <div class="{% if application.email.errors %} error{% endif %}">
-                    <label>Email</label>
-                    {{ application.email|safe }}
-                    {% if application.email.errors %}
-                        {% for error in application.email.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-                <div class="{% if application.attendance.errors %} error{% endif %}">
-                    <label>Can you make all of the class sessions?</label>
-                    <small>We're teaching once a week in the Arrillaga Wellness Room, Tuesdays from 7pm to 10pm.</small>
-                    {{ application.attendance|safe }}
-                    {% if application.attendance.errors %}
-                        {% for error in application.attendance.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-                <div class="{% if application.interest.errors %} error{% endif %}">
-                    <label>Why are you interested in taking this class?</label>
-                    <small>e.g. idea you want to build, work at a startup, 'cuz it's cool</small>
-                    {{ application.interest|safe }}
-                    {% if application.interest.errors %}
-                        {% for error in application.interest.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-                <div class="{% if application.background.errors %} error{% endif %}">
-                    <label>What is your background with programming?</label>
-                    <small>Don't worry, programming experience isn't required, we're just looking to get a feel for people's backgrounds. e.g. CS106A, Codecademy</small>
-                    {{ application.background|safe }}
-                    {% if application.background.errors %}
-                        {% for error in application.background.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-                <div class="{% if application.comments.errors %} error{% endif %}">
-                    <label>Any comments or concerns?</label>
-                    {{ application.comments|safe }}
-                    {% if application.comments.errors %}
-                        {% for error in application.comments.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                    {% endif %}
-                </div>
-
-                <div class="text-center">
-                    <input type="submit" class="button apply alert" value="Apply Now" />
-                </div>
-            </form>
-        {% endif %}
-    </div>
-    </div>
+<div class="app-wrapper">
+    {% include 'application.html' %}
 </div>
 
 <div id="info" class="row">
@@ -99,7 +43,10 @@
 
     <div class="four columns">
         <h3>How?</h3>
-        <p>Apply here, no signing up on Axess</p>
+        <p>
+            Apply here, no Axess signup.<br/>
+            Application due <strong>Monday 1/14</strong>
+        </p>
     </div>
 </div>
 
@@ -167,6 +114,10 @@
         <p>
             The class will meet in the Arillaga Wellness Room in Arrillaga Dining Hall. It's on the right side from the main entrance. <a href="http://goo.gl/maps/9ZqU9" target="_blank">http://goo.gl/maps/9ZqU9</a>
         </p>
+        <h3>How do I get in?</h3>
+        <p>
+            Apply here by the deadline, <strong>Monday 1/14</strong>.
+        </p>
         <h3>What is going to be covered?</h3>
         <p>
             We will be covering the broad array of <a href="#curriculum">topics</a> above and more.
@@ -213,8 +164,12 @@
 
 <div class="row apply">
     <div class="six columns mobile-four centered">
-        <button class="button alert apply">Apply Now</button>
+        <button class="button alert apply last">Apply Now</button>
     </div>
+</div>
+
+<div class="app-wrapper">
+    {% include 'application.html' %}
 </div>
 
 {% endblock %}

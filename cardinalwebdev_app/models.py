@@ -13,17 +13,13 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-class Email(Base):
-    email = models.EmailField(max_length=254)
-
-    def __unicode__(self):
-        return u'%s' % (self.email)
-
 class Application(Base):
     name = models.CharField(max_length=255)
-    email = models.EmailField(max_length=255)
+    email = models.EmailField(max_length=254)
     attendance = models.BooleanField()
-    interest = models.CharField(max_length=1023)
-    background = models.CharField(max_length=1023)
-    comments = models.CharField(max_length=1023)
+    interest = models.TextField()
+    background = models.TextField()
+    comments = models.TextField()
 
+    def __unicode__(self):
+        return u'%s\'s Application' % (self.name)

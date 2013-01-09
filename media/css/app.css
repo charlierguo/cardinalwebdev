@@ -21,7 +21,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
-    margin-bottom: 11.330963135rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,6 +87,10 @@ footer {
 
 .button.apply:hover {
     background-color: #B11B34 !important;
+}
+
+.button.apply.last {
+    margin-bottom: 11.330963135rem;
 }
 
 #info {
@@ -161,11 +164,14 @@ footer {
     padding-top: 10px;
 }
 
+.app-wrapper {
+    display: none;
+}
+
 .application {
     background-image: url('/media/images/low_contrast_linen.png');
-    margin: 50px auto;
+    margin-top: 50px;
     padding: 50px !important;
-    display: none;
 }
 
 .application .columns {
@@ -194,6 +200,7 @@ footer {
     font-size: 1.625rem;
     line-height: 2.6rem;
     margin-bottom: 2.640625rem;
+    padding: 5px;
 }
 
 .application input[type=checkbox] {

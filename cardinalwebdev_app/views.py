@@ -42,32 +42,6 @@ def index(request):
             status = 'success'
             return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
         else:
-            return render(request, "index.html", locals())
+            return render(request, "application.html", locals())
 
     return render(request, "index.html", locals())
-
-# Helper Functions
-def is_valid_email(email):
-    return True if email_re.match(email) else False
-
-def email(request):
-    msg = 'Sorry there was a slight error, please try again.'
-    status = 'error'
-    if request.is_ajax() and 'email' in request.POST:
-        if is_valid_email(request.POST['email']):
-            e, created = Email.objects.get_or_create(email=request.POST['email'])
-            status = 'success'
-            if created:
-                e.save()
-                msg = 'Thanks for contacting us! We\'ll be in touch soon.'
-            else:
-                msg = 'Thanks! If you wanna chat, email <a href="mailto:kevin@imkevinxu.com?Subject=Cardinal%20Web%20Dev%20Chat" target="_blank">kevin@imkevinxu.com</a>'
-        else:
-            msg = 'Sorry email address looks odd, please try again.'
-
-    return HttpResponse(json.dumps({
-        'msg' : msg,
-        'status' : status
-        }, ensure_ascii=False), mimetype='application/json')
-
-

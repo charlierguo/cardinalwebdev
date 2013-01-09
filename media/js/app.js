@@ -68,8 +68,33 @@
 
   $('.apply button').click(function(e) {
     e.preventDefault();
-    $('.application').slideDown();
+    var app = $(this).parent().parent().next();
+    app.slideDown();
+    $('html, body').animate({
+         scrollTop: app.offset().top + 50
+     }, 1000);
   })
+
+  $('.application form').live('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/',
+      data: $(this).serialize(),
+      success: function(data) {
+        if (data['status'] === 'success') {
+          $('.application form').html(data['msg']);
+          $('html, body').animate({
+               scrollTop: $(this).parent().parent().parent().offset().top + 50
+           }, 1000);
+        } else {
+          $('.app-wrapper').html(data);
+        }
+      }
+    });
+  });
+
+
 
   /* ZURB Foundation Javascript Initialization */
   var $doc = $(document);
