@@ -1,64 +1,7 @@
 ;(function ($, window, undefined) {
 
-  /* -----------------------------------------
-     EMAIL FORM
-  ----------------------------------------- */
-  function emailSubmit() {
-    var form = $(this);
-    if ($(this).hasClass('submit_button')) {
-      form = $(this).parents('form');
-    }
-
-    var input = form.find('input[type=email]');
-    form.find('.thanks').fadeOut().remove();
-    if (input.val()) {
-      $.ajax({
-        type: 'POST',
-        url: '/email/',
-        data: { email: input.val() },
-        success: function(data) {
-          if (data['status'] === 'success') {
-            input.prop('disabled', true).removeClass('error');
-            form.find('.submit_button').removeClass('error').addClass('success animated roll');
-            window.setTimeout( function() {
-              thanks = $('<p>', {
-                class: 'thanks',
-                html: data['msg'],
-              });
-              thanks.hide().appendTo(form.find('.email_submit')).fadeIn();
-              form.find('.submit_button').remove();
-            }, 1000);
-          } else {
-            input.addClass('error');
-            form.find('.submit_button').addClass('error');
-            thanks = $('<p>', {
-              class: 'thanks error',
-              style: 'margin-left: 10px',
-              html: data['msg'],
-            });
-            thanks.hide().appendTo(form.find('.email_submit')).fadeIn();
-          }
-        }
-      });
-    } else {
-      input.addClass('animated shake');
-      window.setTimeout( function() {
-        input.removeClass('animated shake').focus()},
-        1000
-      );
-    }
-
-    return false;
-  }
-
-  $('.contactus form').submit(emailSubmit);
-  $('.submit_button').click(emailSubmit);
-
-  $('.interested').click(function() {
-    $(this).parent().next().find('input[type=email]').focus();
-  });
-
-  $('.topics img').click(function() {
+  /* Image Bounce Effect */
+  $('.topics img, .photo').click(function() {
     var $img = $(this);
     $img.addClass('bounce');
     window.setTimeout( function() {
