@@ -40,10 +40,9 @@ def index(request):
                 <a href="mailto:kevin@imkevinxu.com?Subject=Cardinal%20Web%20Dev%20Chat" \
                 target="_blank">kevin@imkevinxu.com</a>'
             status = 'success'
-            #return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
+            return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
         else:
-            a = True
-            #return render(request, "contactus.html", locals())
+            return render(request, "contactus.html", locals())
 
     return render(request, "index.html", locals())
 
