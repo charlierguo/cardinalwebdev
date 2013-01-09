@@ -28,6 +28,14 @@ h1, h2, h3, h4, h5, h6 {
     color: #222;
 }
 
+a {
+    color: #C41E3A;
+}
+
+a:hover {
+    color: #B11B34;
+}
+
 input:focus, textarea:focus {
     border-color: rgba(82, 168, 236, 0.8) !important;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
@@ -35,15 +43,6 @@ input:focus, textarea:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
     outline: 0 !important;
     outline: thin dotted 9 !important;
-}
-
-/* -----------------------------------------
-   FOOTER STYLES
------------------------------------------ */
-
-footer {
-    margin-top: 50px !important;
-    margin-bottom: 50px !important;
 }
 
 /* -----------------------------------------
@@ -118,9 +117,10 @@ footer {
 }
 
 .topics img {
-    -webkit-border-radius: 61px;
-    -moz-border-radius: 61px;
-    border-radius: 61px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    overflow: visible;
 }
 
 #faq h3 {
@@ -171,16 +171,23 @@ footer {
 .application {
     background-image: url('/media/images/low_contrast_linen.png');
     margin-top: 50px;
-    padding: 50px !important;
+    padding: 50px!important;
 }
 
 .application .columns {
     background-color: #fff;
-    padding: 80px;
+    padding: 40px 80px 40px;
 
     -moz-box-shadow:    0px 10px 20px 0px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.6);
     box-shadow:         0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+}
+
+.application h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.291015625rem;
+    margin-bottom: 1.625rem;
+    line-height: 1.3;
 }
 
 .application label {
@@ -193,7 +200,9 @@ footer {
     font-size: 1.625rem;
     line-height: 2.6rem;
     margin-bottom: 1.625rem;
+    padding-left: 0;
     color: #666;
+    display: block;
 }
 
 .application input[type=text], .application input[type=checkbox], .application textarea {
@@ -204,86 +213,86 @@ footer {
 }
 
 .application input[type=checkbox] {
-    width: 100px;
+  -ms-transform: scale(1.8);
+  -moz-transform: scale(1.8);
+  -webkit-transform: scale(1.8);
+  -o-transform: scale(1.8);
+  padding: 10px;
+  position: relative;
+  top: -5px;
+}
+
+.application label.checkbox {
+    font-size: 2rem;
+    padding-left: 10px;
+    display: inline-block;
 }
 
 .application textarea {
     height: 150px;
 }
 
+.application small.error {
+    background-color: #C60F13 !important;
+    color: #fff !important;
+    padding-left: 10px !important;
+}
+
+.application .error small {
+    background-color: inherit;
+    color: #C60F13;
+}
+
 /* -----------------------------------------
-   CONTACTUS STYLES
+   ANIMATION Styles
 ----------------------------------------- */
 
-.contactus input[type=email] {
-    height: 50px;
-    padding: 17px;
-    font-size: 17px;
+.bounce {
+    -webkit-animation: bounce 1s;
+    -moz-animation: bounce 1s;
+    -o-animation: bounce 1s;
+    animation: bounce 1s;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
 }
 
-.contactus .thanks {
-    font-size: 17px;
-    margin-top: 12px;
-    vertical-align: top;
-    display: inline-block;
+@-webkit-keyframes bounce {
+    0% { -webkit-transform: scale(1.1); opacity: 1 }
+    50% { -webkit-transform: scale(1.6); opacity: .7; }
+    60% { -webkit-transform: scale(0.6); opacity: 1 }
+    80% { -webkit-transform: scale(0.95) }
+    100% { -webkit-transform: scale(0.85) }
 }
 
-.contactus .submit_button {
-    font-size: 5rem;
-    height: 48px;
-    display: inline-block;
-    cursor: pointer;
-    color: #222;
+@-moz-keyframes bounce {
+    0% { -moz-transform: scale(1.1); opacity: 1 }
+    50% { -moz-transform: scale(1.6); opacity: .7; }
+    60% { -moz-transform: scale(0.6); opacity: 1 }
+    80% { -moz-transform: scale(0.95) }
+    100% { -moz-transform: scale(0.85) }
 }
 
-.contactus button.interested {
-    background-color: #CB1032;
-    background-image: -webkit-linear-gradient(top,#DD0F28,#CB1032);
-    background-image: -moz-linear-gradient(top,#DD0F28,#CB1032);
-    background-image: -ms-linear-gradient(top,#DD0F28,#CB1032);
-    background-image: -o-linear-gradient(top,#DD0F28,#CB1032);
-    background-image: linear-gradient(top,#DD0F28,#CB1032);
-
-    width: 100%;
-    border: 1px solid transparent;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-
-    white-space: nowrap;
-    cursor: default;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
+@-o-keyframes bounce {
+    0% { -o-transform: scale(1.1); opacity: 1 }
+    50% { -o-transform: scale(1.6); opacity: .7; }
+    60% { -o-transform: scale(0.6); opacity: 1 }
+    80% { -o-transform: scale(0.95) }
+    100% { -o-transform: scale(0.85) }
 }
 
-.contactus button.interested:hover {
-    background-color: #BF0F2F;
-    background-image: -webkit-linear-gradient(top,#DD0F28,#BF0F2F);
-    background-image: -moz-linear-gradient(top,#DD0F28,#BF0F2F);
-    background-image: -ms-linear-gradient(top,#DD0F28,#BF0F2F);
-    background-image: -o-linear-gradient(top,#DD0F28,#BF0F2F);
-    background-image: linear-gradient(top,#DD0F28,#BF0F2F);
-    border: 1px solid #B80E2D;
+@keyframes bounce {
+    0% { transform: scale(1.1); opacity: 1 }
+    50% { transform: scale(1.6); opacity: .7; }
+    60% { transform: scale(0.6); opacity: 1 }
+    80% { transform: scale(0.95) }
+    100% { transform: scale(0.85) }
 }
 
-.contactus button.interested:active {
-    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-    background-color: #B00E2C;
-    background-image: -webkit-linear-gradient(top,#DD0F28,#B00E2C);
-    background-image: -moz-linear-gradient(top,#DD0F28,#B00E2C);
-    background-image: -ms-linear-gradient(top,#DD0F28,#B00E2C);
-    background-image: -o-linear-gradient(top,#DD0F28,#B00E2C);
-    background-image: linear-gradient(top,#DD0F28,#B00E2C);
-    border: 1px solid #B80E2D;
-}
+/* -----------------------------------------
+   RESPONSIVE STYLES
+----------------------------------------- */
 
 @media only screen and (max-width: 360px) {
     #main {

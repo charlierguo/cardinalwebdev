@@ -9,17 +9,23 @@
     }, 1000);
   });
 
-  $('.apply button').click(function(e) {
+  /* Apply Button Reveal Application */
+  $('button.apply, a.apply').click(function(e) {
     e.preventDefault();
     var app = $(this).parent().parent().next();
+    if (!app.hasClass('app-wrapper')) {
+      app = $(this).parent().parent().parent().next();
+    }
     app.slideDown();
     $('html, body').animate({
-         scrollTop: app.offset().top + 50
-     }, 1000);
-  })
+      scrollTop: app.offset().top + 50
+    }, 800);
+  });
 
+  /* Submit Application */
   $('.application form').live('submit', function(e) {
     e.preventDefault();
+    var offset = $(this).parent().parent().parent().parent().offset().top + 50;
     $.ajax({
       type: 'POST',
       url: '/',
@@ -27,17 +33,15 @@
       success: function(data) {
         if (data['status'] === 'success') {
           $('.application form').html(data['msg']);
-          $('html, body').animate({
-               scrollTop: $(this).parent().parent().parent().offset().top + 50
-           }, 1000);
         } else {
           $('.app-wrapper').html(data);
         }
+        $('html, body').animate({
+          scrollTop: offset
+        }, 800);
       }
     });
   });
-
-
 
   /* ZURB Foundation Javascript Initialization */
   var $doc = $(document);
