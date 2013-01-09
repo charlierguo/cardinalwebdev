@@ -66,6 +66,11 @@
     }, 1000);
   });
 
+  $('.apply button').click(function(e) {
+    e.preventDefault();
+    $('.application').slideDown();
+  })
+
   /* ZURB Foundation Javascript Initialization */
   var $doc = $(document);
   var Modernizr = window.Modernizr;

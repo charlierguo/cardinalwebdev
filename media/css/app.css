@@ -79,14 +79,14 @@ footer {
     color: #C41E3A;
 }
 
-.apply button {
+.button.apply {
     width: 100%;
     background-color: #C41E3A !important;
     font-size: 4.291015625rem;
     padding: 25px;
 }
 
-.apply button:hover {
+.button.apply:hover {
     background-color: #B11B34 !important;
 }
 
@@ -159,6 +159,49 @@ footer {
 #team img.logo {
     width: 80%;
     padding-top: 10px;
+}
+
+.application {
+    background-image: url('/media/images/low_contrast_linen.png');
+    margin: 50px auto;
+    padding: 50px !important;
+    display: none;
+}
+
+.application .columns {
+    background-color: #fff;
+    padding: 80px;
+
+    -moz-box-shadow:    0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+    box-shadow:         0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+}
+
+.application label {
+    font-size: 2.640625rem;
+    line-height: 3.7rem;
+    font-weight: 700;
+}
+
+.application small {
+    font-size: 1.625rem;
+    line-height: 2.6rem;
+    margin-bottom: 1.625rem;
+    color: #666;
+}
+
+.application input[type=text], .application input[type=checkbox], .application textarea {
+    font-size: 1.625rem;
+    line-height: 2.6rem;
+    margin-bottom: 2.640625rem;
+}
+
+.application input[type=checkbox] {
+    width: 100px;
+}
+
+.application textarea {
+    height: 150px;
 }
 
 /* -----------------------------------------

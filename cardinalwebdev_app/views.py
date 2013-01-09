@@ -42,7 +42,7 @@ def index(request):
             status = 'success'
             return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
         else:
-            return render(request, "contactus.html", locals())
+            return render(request, "index.html", locals())
 
     return render(request, "index.html", locals())
 
