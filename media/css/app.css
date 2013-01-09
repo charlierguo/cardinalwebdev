@@ -16,11 +16,11 @@
    BASE STYLES
 ----------------------------------------- */
 
-.row { width: 900px; }
+.row { width: 940px; }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #444;
+    color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,49 +50,74 @@ footer {
    HOMEPAGE STYLES
 ----------------------------------------- */
 
-.heading {
-    margin-top: 50px;
+#title {
+    margin-top: 7rem;
 }
 
-.heading h1 {
+#title h1, #title h2, #title h3 {
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#title h1 {
     text-transform: uppercase;
-    font-size: 56px;
-    line-height: 0.8;
+    font-size: 10rem;
+    line-height: 0.75;
 }
 
-.heading .red {
-    color: #DD0F28;
+#title h2 {
+    font-size: 6.153846154rem;
+    margin-bottom: 6.153846154rem;
 }
 
-#background {
-    padding-top: 50px;
-    padding-bottom: 80px;
-    margin-top: -50px;
-    background-color: #F0F5FB;
-    background-image: url(/media/images/pattern.png);
-
-    -webkit-animation: animate-bg 18s linear;
-    -moz-animation: animate-bg 18s linear;
-    -o-animation: animate-bg 18s linear;
-    animation: animate-bg 18s linear;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -o-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+#title h3 {
+    font-size: 3.3rem;
+    margin-bottom: 3rem;
 }
 
-#main {
-    background: #fff;
-    padding: 20px 30px;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 10px;
-    border: 1px dashed #999;
+.red {
+    color: #C41E3A;
+}
+
+.apply button {
+    width: 100%;
+    background-color: #C41E3A !important;
+    font-size: 4.291015625rem;
+    padding: 25px;
+}
+
+.apply button:hover {
+    background-color: #B11B34 !important;
+}
+
+#info {
+    margin-top: 6.153846154rem;
+}
+
+#info h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.291015625rem;
 }
 
 #info p {
-    font-size: 1.6rem;
+    font-size: 2rem;
+}
+
+.title h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 6.972900391rem;
+    margin-top: 6.153846154rem;
+    margin-bottom: 2.640625rem;
+}
+
+.topics .columns {
+    text-align: center;
+}
+
+.topics img {
+    -webkit-border-radius: 61px;
+    -moz-border-radius: 61px;
+    border-radius: 61px;
+
 }
 
 /* -----------------------------------------
