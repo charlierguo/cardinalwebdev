@@ -31,6 +31,7 @@ def index(request):
             app = Application(
                   name=cd['name'],
                   email=cd['email'],
+                  major=cd['major'],
                   attendance=cd['attendance'],
                   interest=cd['interest'],
                   background=cd['background'],

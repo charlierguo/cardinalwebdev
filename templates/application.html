@@ -41,6 +41,18 @@
 
                 <div class="row">
                     <div class="twelve columns">
+                        <div class="{% if application.major.errors %} error{% endif %}">
+                            <label for="id_major">Major/Year</label>
+                            {{ application.major|safe }}
+                            {% if application.major.errors %}
+                                {% for error in application.major.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="twelve columns">
                         <div class="{% if application.attendance.errors %} error{% endif %}">
                             <label>Can you attend all of the class sessions?</label>
                             <small>Class is once a week in the Arrillaga Wellness Room, Tuesdays from 7pm to 10pm.</small>

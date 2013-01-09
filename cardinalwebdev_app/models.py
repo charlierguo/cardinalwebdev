@@ -16,6 +16,7 @@ class Base(models.Model):
 class Application(Base):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=254)
+    major = models.CharField(max_length=255)
     attendance = models.BooleanField()
     interest = models.TextField()
     background = models.TextField()
