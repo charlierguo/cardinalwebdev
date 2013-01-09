@@ -22,7 +22,7 @@
     <!-- Facebook Meta Data -->
     <meta property="og:url" content="http://cardinalwebdev.com/" />
     <meta property="og:title" content="Cardinal Web Dev" />
-    <meta property="og:description" content="Web development crash course in 9 weeks." />
+    <meta property="og:description" content="Web development crash course in 9 weeks. Learn to build your own website with HTML, Javascript, and Python." />
     <meta property="og:image" content="http://cardinalwebdev.com/media/images/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
 
@@ -56,6 +56,14 @@
 </head>
 
 <body class="body">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=407882832614060";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
     chromium.org/developers/how-tos/chrome-frame-getting-started -->
