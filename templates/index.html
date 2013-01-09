@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<div class="row title">
+<div id="curriculum" class="row title">
     <div class="twelve columns text-center">
         <h1>Course Topics</h1>
     </div>
@@ -87,78 +87,75 @@
     </div>
 </div>
 
-
-
-
-{#
-
-{% include 'contactus.html' %}
-
-<div class="row heading">
-    <div class="twelve columns">
-        <h1>FAQ</h1>
+<div class="row title">
+    <div class="twelve columns text-center">
+        <h1>F.A.Q.</h1>
     </div>
 </div>
 
 <div id="faq" class="row">
     <div class="twelve columns">
+        <h3>What is this class?</h3>
+        <p>
+            This class is a crash-course on the practical skills needed to build an interactive website. Learn the basics of web development in the real world taught by students who collectively have 10 years of web development experience and are heavily involved in the startup world. You will learn the fundamentals, get hands-on program in each class, and build your own projects by the end of the class.
+        </p>
         <h3>When is the class taught?</h3>
         <p>
-            The class is taught every Tuesday, from 7pm to 10pm. We won't always take up the entirety of that time with a lecture, but we will be around to answer questions afterwards.
+            The class is taught every Tuesday, from 7pm to 10pm. First half will be an interactive lecture and second half will be open time to practice the concepts you've learned.
         </p>
         <h3>Where does the class meet?</h3>
         <p>
-            The class will meet in the study room in Arrillaga dining hall.
+            The class will meet in the Arillaga Wellness Room in Arrillaga Dining Hall. It's on the right side from the main entrance. <a href="http://goo.gl/maps/9ZqU9" target="_blank">http://goo.gl/maps/9ZqU9</a>
         </p>
         <h3>What is going to be covered?</h3>
         <p>
-            You can look at the <a href="#curriculum">broad curriculum</a> above, and we'll also be releasing a week-to-week schedule.
+            We will be covering the broad array of <a href="#curriculum">topics</a> above and more.
         </p>
         <h3>Are there pre-requisites?</h3>
         <p>
-            We ask that you've taken at least CS106A, or the equivalent. Because of the short amount of time we have, we're going to focus more on web application specifics rather than general programming skills. <br /> <br />
-            If you've done the JavaScript and Python courses on <a href="http://www.codecademy.com/">Codecademy</a>, then you're in good shape.
+            We ask that you've taken at least CS106A, or the equivalent. Because of the short amount of time we have, we're going to focus more on web application specifics rather than general programming skills.<br /><br />
+            If you've done the JavaScript or Python courses on <a href="http://www.codecademy.com/">Codecademy</a>, then you're in good shape.
         </p>
         <h3>Are all of the lectures mandatory?</h3>
         <p>
-            They are all strongly recommended. You'll definitely get the best experience and skills by attending them all.
+            Yes, you're expected to attend if you're accepted.
         </p>
         <h3>Who is teaching the class?</h3>
         <p>
-            Check out the <a href="#team">team.</a>
+            See below.
         </p>
     </div>
 </div>
 
-<div class="row heading">
-    <div class="twelve columns">
+<div class="row title">
+    <div class="twelve columns text-center">
         <h1>Teachers</h1>
     </div>
 </div>
 
 <div id="team" class="row">
     <div class="four columns">
-        <img src="https://sphotos-a.xx.fbcdn.net/hphotos-ash4/281314_2027095871144_5512365_n.jpg" />
-        <h4>Charlie Guo</h4>
-        <img src="http://www.kennykao.com/images/projects/palantir-logo.jpg" />
+        <img class="photo" src="{{ MEDIA_URL}}images/charlie.jpg" />
+        <h3><a href="https://twitter.com/charlierguo" target="_blank">Charlie Guo</a></h3>
+        <img class="logo" src="{{ MEDIA_URL}}images/palantir.png" />
     </div>
     <div class="four columns">
-        <img src="https://sphotos-b.xx.fbcdn.net/hphotos-ash4/223713_4228515075863_784283845_n.jpg" />
-        <h4>Kevin Xu</h4>
-        <img src="http://www.plugandplaytechcenter.com/sites/default/files/styles/partner-default/public/felicis%20ventures.png" />
+        <img class="photo" src="{{ MEDIA_URL}}images/kevin.jpg" />
+        <h3><a href="https://twitter.com/imkevinxu" target="_blank">Kevin Xu</a></h3>
+        <img class="logo" src="{{ MEDIA_URL}}images/dfund.png" style="margin-top: 10px" />
     </div>
     <div class="four columns">
-        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c66.8.414.414/s160x160/282093_1660534712925_7292021_n.jpg" / style="width:100%">
-        <h4>Kingston Tam</h4>
-        <img src="http://vanbrabsongallery.com/yahoo_site_admin/assets/images/square_logo_landscape.17563948_std.png" />
+        <img class="photo" src="{{ MEDIA_URL}}images/kingston.jpg" />
+        <h3><a href="https://twitter.com/kingstontam" target="_blank">Kingston Tam</a></h3>
+        <img class="logo" src="{{ MEDIA_URL}}images/square.png" />
     </div>
 </div>
 
-<footer class="row">
-    <div class="twelve columns">
-        &copy; Cardinal Web Dev 2013
+<div class="row apply">
+    <div class="six columns mobile-four centered">
+        <button class="button alert">Apply Now</button>
     </div>
-</footer> #}
+</div>
 
 {% endblock %}
 

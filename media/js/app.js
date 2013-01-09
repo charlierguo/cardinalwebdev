@@ -58,6 +58,14 @@
     $(this).parent().next().find('input[type=email]').focus();
   });
 
+  $('.topics img').click(function() {
+    var $img = $(this);
+    $img.addClass('bounce');
+    window.setTimeout( function() {
+      $img.removeClass('bounce');
+    }, 1000);
+  });
+
   /* ZURB Foundation Javascript Initialization */
   var $doc = $(document);
   var Modernizr = window.Modernizr;

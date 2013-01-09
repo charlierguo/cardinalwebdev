@@ -21,6 +21,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
+    margin-bottom: 11.330963135rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -117,7 +118,47 @@ footer {
     -webkit-border-radius: 61px;
     -moz-border-radius: 61px;
     border-radius: 61px;
+}
 
+#faq h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.291015625rem;
+}
+
+#faq p {
+    font-size: 2.640625rem;
+    line-height: 3.8rem;
+    margin-bottom: 4.291015625rem;
+}
+
+#team {
+    text-align: center;
+    margin-bottom: 6.972900391rem;
+}
+
+#team h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.291015625rem;
+}
+
+#team h3 a {
+    color: inherit;
+}
+
+#team h3 a:hover {
+    color: #C41E3A;
+}
+
+#team img.photo {
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    width: 80%;
+}
+
+#team img.logo {
+    width: 80%;
+    padding-top: 10px;
 }
 
 /* -----------------------------------------
