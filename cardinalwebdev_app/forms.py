@@ -11,4 +11,4 @@ class ApplyForm(forms.Form):
     attendance = forms.BooleanField()
     interest = forms.CharField(required=True, widget=forms.Textarea)
     background = forms.CharField(required=True, widget=forms.Textarea)
-    comments = forms.CharField(widget=forms.Textarea)
+    comments = forms.CharField(required=False, widget=forms.Textarea)
