@@ -205,6 +205,10 @@ input:focus, textarea:focus {
     padding-top: 10px;
 }
 
+/* -----------------------------------------
+   CONTACT STYLES
+----------------------------------------- */
+
 #contactus {
     margin-bottom: 6.972900391rem;
 }
@@ -212,6 +216,13 @@ input:focus, textarea:focus {
 #contactus h2 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 4.291015625rem;
+}
+
+#contactus h6 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2rem;
+    color: #666;
+    margin-top: 1rem;
 }
 
 /* -----------------------------------------
