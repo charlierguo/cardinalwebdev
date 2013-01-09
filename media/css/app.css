@@ -18,6 +18,12 @@
 
 .row { width: 940px; }
 
+html, body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
@@ -57,7 +63,7 @@ input:focus, textarea:focus {
     -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
     outline: 0 !important;
-    outline: thin dotted 9 !important;
+    outline: thin dotted 9px !important;
 }
 
 /* -----------------------------------------
@@ -355,24 +361,54 @@ input:focus, textarea:focus {
         font-size: 4.291015625rem;
         line-height: 6rem;
     }
+
+    .application {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .application .page {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
 
-/* iPhone Landscape and Portait View */
+/* iPhone Landscape View */
 
 @media only screen and (max-width: 480px) {
+    html {
+        width: 100%;
+        margin: 0 !important;
+    }
+
     #title {
         margin-top: 4.291015625rem;
     }
 
     #title h1 {
-        font-size: 6.972900391rem;
-        line-height: 6.972900391rem;
+        font-size: 5.5rem;
+        line-height: 5.5rem;
     }
 
     #title h2 {
         font-size: 4.291015625rem;
-        line-height: 4.291015625rem;
+        line-height: 1;
         margin-bottom: 4.291015625rem;
+    }
+
+    #title h3 {
+        font-size: 2.640625rem;
+        line-height: 1.4;
+        margin-bottom: 2.640625rem;
+    }
+
+    .topics .columns {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
 
     #faq p {
@@ -402,14 +438,24 @@ input:focus, textarea:focus {
         margin-right: 0 !important;
     }
 
+    .application h3 {
+        font-size: 2.640625rem;
+        line-height: 1.4;
+        margin-bottom: 2.640625rem;
+    }
+
     .application .apply {
         font-size: 2.640625rem;
     }
 }
 
+/* iPhone Portrait View */
 
+@media only screen and (max-width: 340px) {
+    #title h1 {
+        font-size: 6.972900391rem;
+        line-height: 6.972900391rem;
+    }
+}
 
-
-
-
-/* END SPACING
+/* END SPACING */

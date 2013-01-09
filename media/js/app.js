@@ -16,6 +16,7 @@
     if (!app.hasClass('app-wrapper')) {
       app = $(this).parent().parent().parent().next();
     }
+    console.log(app);
     app.slideDown();
     $('html, body').animate({
       scrollTop: app.offset().top + 50
