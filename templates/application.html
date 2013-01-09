@@ -56,7 +56,7 @@
                     <div class="twelve columns">
                         <div class="{% if application.interest.errors %} error{% endif %}">
                             <label for="id_interest">Why are you interested in taking this class?</label>
-                            <small>e.g. idea you want to build, work at a startup, 'cuz it's cool, etc.</small>
+                            <small>e.g. specific idea you want to build, work at a startup, 'cuz it's cool, etc.</small>
                             {{ application.interest|safe }}
                             {% if application.interest.errors %}
                                 {% for error in application.interest.errors %}<small class="error">{{ error }}</small>{% endfor %}
