@@ -18,3 +18,12 @@ class Email(Base):
 
     def __unicode__(self):
         return u'%s' % (self.email)
+
+class Application(Base):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    attendance = models.BooleanField()
+    interest = models.CharField(max_length=1023)
+    background = models.CharField(max_length=1023)
+    comments = models.CharField(max_length=1023)
+
