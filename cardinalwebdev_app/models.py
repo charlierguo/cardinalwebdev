@@ -20,7 +20,7 @@ class Application(Base):
     attendance = models.BooleanField()
     interest = models.TextField()
     background = models.TextField()
-    comments = models.TextField()
+    comments = models.TextField(blank=True, null=True)
 
     def __unicode__(self):
         return u'%s\'s Application' % (self.name)
