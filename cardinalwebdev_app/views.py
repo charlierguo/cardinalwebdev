@@ -23,6 +23,27 @@ except ImportError:
     import simplejson as json
 
 def index(request):
+    application = ApplyForm()
+    if request.method == "POST":
+        application = ApplyForm(request.POST)
+        if application.is_valid():
+            cd = application.cleaned_data
+            app = Application(
+                name=cd['name'],
+                email=cd['email'],
+                attendance=cd['attendance'],
+                interest=cd['interest'],
+                background=cd['background'],
+                comments=cd['comments'])
+            app.save()
+            msg = 'Thanks for applying! If you wanna chat, email \
+                <a href="mailto:kevin@imkevinxu.com?Subject=Cardinal%20Web%20Dev%20Chat" \
+                target="_blank">kevin@imkevinxu.com</a>'
+            status = 'success'
+            return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
+        else:
+            return render(request, "contactus.html", locals())
+
     return render(request, "index.html", locals())
 
 # Helper Functions
