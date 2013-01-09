@@ -1,96 +1,100 @@
 <div class="application">
     <div class="row">
-        <div class="ten columns centered mobile-four page">
-            {% if application %}
-                <form method="post">{% csrf_token %}
-                    <div class="row">
-                        <div class="twelve columns">
-                            <h3>Cardinal Web Dev Application Due Monday, 1/14</h3>
-                        </div>
+        <div class="twelve columns centered mobile-four page">
+            <h3 class="msg" style="display: none;">
+                Thanks for applying! If you wanna chat, email <a href="mailto:kevin@imkevinxu.com?Subject=[Cardinal%20Web%20Dev]%20Chat" target="_blank">kevin@imkevinxu.com</a>
+            </h3>
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="twelve columns">
+                        <h3>
+                            Cardinal Web Dev Application<br/>
+                            Due Monday, 1/14 11:59pm
+                        </h3>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.name.errors %} error{% endif %}">
-                                <label for="id_name">Name</label>
-                                {{ application.name|safe }}
-                                {% if application.name.errors %}
-                                    {% for error in application.name.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.name.errors %} error{% endif %}">
+                            <label for="id_name">Name</label>
+                            {{ application.name|safe }}
+                            {% if application.name.errors %}
+                                {% for error in application.name.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.email.errors %} error{% endif %}">
-                                <label for="id_email">Email</label>
-                                {{ application.email|safe }}
-                                {% if application.email.errors %}
-                                    {% for error in application.email.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.email.errors %} error{% endif %}">
+                            <label for="id_email">Email</label>
+                            {{ application.email|safe }}
+                            {% if application.email.errors %}
+                                {% for error in application.email.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.attendance.errors %} error{% endif %}">
-                                <label>Can you attend all of the class sessions?</label>
-                                <small>Class is once a week in the Arrillaga Wellness Room, Tuesdays from 7pm to 10pm.</small>
-                                {{ application.attendance|safe }}<label for="id_attendance" class="checkbox">Yes I can</label>
-                                {% if application.attendance.errors %}
-                                    {% for error in application.attendance.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.attendance.errors %} error{% endif %}">
+                            <label>Can you attend all of the class sessions?</label>
+                            <small>Class is once a week in the Arrillaga Wellness Room, Tuesdays from 7pm to 10pm.</small>
+                            {{ application.attendance|safe }}<label for="id_attendance" class="checkbox">Yes I can</label>
+                            {% if application.attendance.errors %}
+                                {% for error in application.attendance.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.interest.errors %} error{% endif %}">
-                                <label for="id_interest">Why are you interested in taking this class?</label>
-                                <small>e.g. idea you want to build, work at a startup, 'cuz it's cool, etc.</small>
-                                {{ application.interest|safe }}
-                                {% if application.interest.errors %}
-                                    {% for error in application.interest.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.interest.errors %} error{% endif %}">
+                            <label for="id_interest">Why are you interested in taking this class?</label>
+                            <small>e.g. idea you want to build, work at a startup, 'cuz it's cool, etc.</small>
+                            {{ application.interest|safe }}
+                            {% if application.interest.errors %}
+                                {% for error in application.interest.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.background.errors %} error{% endif %}">
-                                <label for="id_background">What is your background with programming?</label>
-                                <small>Don't worry programming experience isn't required, we're just looking to get a feel for people's backgrounds. e.g. CS106A, Codecademy, etc.</small>
-                                {{ application.background|safe }}
-                                {% if application.background.errors %}
-                                    {% for error in application.background.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.background.errors %} error{% endif %}">
+                            <label for="id_background">What is your background with programming?</label>
+                            <small>Don't worry programming experience isn't required, we're just looking to get a feel for people's backgrounds. e.g. CS106A, Codecademy, etc.</small>
+                            {{ application.background|safe }}
+                            {% if application.background.errors %}
+                                {% for error in application.background.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns">
-                            <div class="{% if application.comments.errors %} error{% endif %}">
-                                <label for="id_comments">Any comments or concerns?</label>
-                                {{ application.comments|safe }}
-                                {% if application.comments.errors %}
-                                    {% for error in application.comments.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                                {% endif %}
-                            </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="{% if application.comments.errors %} error{% endif %}">
+                            <label for="id_comments">Any comments or concerns?</label>
+                            {{ application.comments|safe }}
+                            {% if application.comments.errors %}
+                                {% for error in application.comments.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="twelve columns text-center">
-                            <input type="submit" class="button apply alert" value="Submit Application" />
-                        </div>
+                <div class="row">
+                    <div class="twelve columns text-center">
+                        <input type="submit" class="button radius apply alert" value="Submit Application" />
                     </div>
-                </form>
-            {% endif %}
+                </div>
+            </form>
         </div>
     </div>
 </div>

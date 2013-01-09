@@ -29,19 +29,16 @@ def index(request):
         if application.is_valid():
             cd = application.cleaned_data
             app = Application(
-                name=cd['name'],
-                email=cd['email'],
-                attendance=cd['attendance'],
-                interest=cd['interest'],
-                background=cd['background'],
-                comments=cd['comments'])
+                  name=cd['name'],
+                  email=cd['email'],
+                  attendance=cd['attendance'],
+                  interest=cd['interest'],
+                  background=cd['background'],
+                  comments=cd['comments'])
             app.save()
-            msg = '<h3>Thanks for applying! If you wanna chat, email \
-                <a href="mailto:kevin@imkevinxu.com?Subject=Cardinal%20Web%20Dev%20Chat" \
-                target="_blank">kevin@imkevinxu.com</a></h3>'
-            status = 'success'
-            return HttpResponse(json.dumps({'msg' : msg,'status' : status }, ensure_ascii=False), mimetype='application/json')
-        else:
-            return render(request, "application.html", locals())
+            results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
+            return HttpResponse(results, mimetype='application/json')
+
+        return render(request, "application.html", locals())
 
     return render(request, "index.html", locals())

@@ -32,7 +32,8 @@
       data: $(this).serialize(),
       success: function(data) {
         if (data['status'] === 'success') {
-          $('.application form').html(data['msg']);
+          $('.application form').html('');
+          $('.application h3.msg').fadeIn();
         } else {
           $('.app-wrapper').html(data);
         }

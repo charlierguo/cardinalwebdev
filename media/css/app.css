@@ -1,4 +1,4 @@
- -----------------------------------------
+/* -----------------------------------------
    SHARED STYLES
 ----------------------------------------- */
 
@@ -8,7 +8,7 @@
 .block { display: block !important; }
 .hidden { display: none !important; }
 .inline-block { display: inline-block !important; }
-.error { color: #c60f13; }
+.error { color: #C41E3A; }
 .visible { opacity: 1; }
 .invisible { opacity: 0; }
 
@@ -23,10 +23,15 @@ body {
     color: #333;
     background-color: white;
     background-image: url(/media/images/pattern.png),
-    -webkit-radial-gradient(50% 0%, 2000px 1400px, rgba(255, 255, 255, 1.0) 50%, rgba(176, 237, 193, 0.2) 100%);
+    -webkit-radial-gradient(50% 0%, 10000px 1400px, rgba(255, 255, 255, 1.0) 50%, rgba(120, 120, 120, 0.2) 100%);
+    background-image: url(/media/images/pattern.png),
+    -moz-radial-gradient(50% 0%, circle, rgba(255, 255, 255, 1.0) 50%, rgba(120, 120, 120, 0.2) 100%);
+    background-image: url(/media/images/pattern.png),
+    -o-radial-gradient(50% 0%, 10000px 1400px, rgba(255, 255, 255, 1.0) 50%, rgba(120, 120, 120, 0.2) 100%);
+    background-image: url(/media/images/pattern.png),
+    radial-gradient(50% 0%, 10000px 1400px, rgba(255, 255, 255, 1.0) 50%, rgba(120, 120, 120, 0.2) 100%);
     background-position: 0 0, 0 0;
     background-repeat: repeat, no-repeat;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +47,10 @@ a:hover {
     color: #B11B34;
 }
 
+.red {
+    color: #C41E3A;
+}
+
 input:focus, textarea:focus {
     border-color: rgba(82, 168, 236, 0.8) !important;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
@@ -52,7 +61,7 @@ input:focus, textarea:focus {
 }
 
 /* -----------------------------------------
-   HOMEPAGE STYLES
+   TITLE STYLES
 ----------------------------------------- */
 
 #title {
@@ -79,9 +88,16 @@ input:focus, textarea:focus {
     margin-bottom: 3rem;
 }
 
-.red {
-    color: #C41E3A;
+.title h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 6.972900391rem;
+    margin-top: 6.153846154rem;
+    margin-bottom: 2.640625rem;
 }
+
+/* -----------------------------------------
+   APPLY BUTTON STYLES
+----------------------------------------- */
 
 .button.apply {
     width: 100%;
@@ -98,6 +114,10 @@ input:focus, textarea:focus {
     margin-bottom: 11.330963135rem;
 }
 
+/* -----------------------------------------
+   TOP INFO STYLES
+----------------------------------------- */
+
 #info {
     margin-top: 6.153846154rem;
 }
@@ -111,15 +131,13 @@ input:focus, textarea:focus {
     font-size: 2rem;
 }
 
-.title h1 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 6.972900391rem;
-    margin-top: 6.153846154rem;
-    margin-bottom: 2.640625rem;
-}
+/* -----------------------------------------
+   COURSE TOPICS STYLES
+----------------------------------------- */
 
 .topics .columns {
     text-align: center;
+    margin-top: 15px;
 }
 
 .topics img {
@@ -128,6 +146,10 @@ input:focus, textarea:focus {
     border-radius: 100px;
     overflow: visible;
 }
+
+/* -----------------------------------------
+   FAQ STYLES
+----------------------------------------- */
 
 #faq h3 {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -143,6 +165,10 @@ input:focus, textarea:focus {
 #faq p:last-child {
     margin-bottom: 0;
 }
+
+/* -----------------------------------------
+   TEAM STYLES
+----------------------------------------- */
 
 #team {
     text-align: center;
@@ -174,6 +200,10 @@ input:focus, textarea:focus {
     padding-top: 10px;
 }
 
+/* -----------------------------------------
+   APPLICATION STYLES
+----------------------------------------- */
+
 .app-wrapper {
     display: none;
 }
@@ -182,6 +212,9 @@ input:focus, textarea:focus {
     background-image: url('/media/images/linen.png');
     margin-top: 50px;
     padding: 50px!important;
+    -moz-box-shadow:    inset 0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0px 10px 20px 0px rgba(0, 0, 0, 0.6);
+    box-shadow:         inset 0px 10px 20px 0px rgba(0, 0, 0, 0.6);
 }
 
 .application .page {
@@ -201,6 +234,7 @@ input:focus, textarea:focus {
 }
 
 .application label {
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 2.640625rem;
     line-height: 3.7rem;
     font-weight: 700;
@@ -243,14 +277,19 @@ input:focus, textarea:focus {
 }
 
 .application small.error {
-    background-color: #C60F13 !important;
+    background-color: #C41E3A !important;
     color: #fff !important;
     padding-left: 10px !important;
+    margin-top: 0 !important;
+}
+
+.application .error input, .application .error textarea {
+    margin-bottom: 0;
 }
 
 .application .error small {
     background-color: inherit;
-    color: #C60F13;
+    color: #C41E3A;
 }
 
 /* -----------------------------------------
