@@ -7,7 +7,7 @@ Auto-generated from [Kevin Xu](https://github.com/imkevinxu)'s [Django Project B
 
 * Kevin Xu <kevin@imkevinxu.com>
 * Charlie Guo <charlierguo@gmail.com>
-* Kingston Tam <ktam@stanford.edu>
+* Kingston Tam <kingtam2000@gmail.com>
 
 ## Getting Started
 
