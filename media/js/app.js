@@ -29,7 +29,7 @@
     var offset = $(this).parent().parent().parent().parent().offset().top + 50;
     $.ajax({
       type: 'POST',
-      url: '/',
+      url: '/apply/',
       data: $(this).serialize(),
       success: function(data) {
         if (data['status'] === 'success') {

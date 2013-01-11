@@ -24,7 +24,10 @@ except ImportError:
 
 def index(request):
     application = ApplyForm()
-    if request.method == "POST":
+    return render(request, "index.html", locals())
+
+def apply(request):
+    if request.is_ajax() and request.method == "POST":
         application = ApplyForm(request.POST)
         if application.is_valid():
             cd = application.cleaned_data
@@ -39,7 +42,5 @@ def index(request):
             app.save()
             results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
             return HttpResponse(results, mimetype='application/json')
-
         return render(request, "application.html", locals())
-
-    return render(request, "index.html", locals())
+    return redirect('index')
