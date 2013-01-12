@@ -24,3 +24,17 @@ class Application(Base):
 
     def __unicode__(self):
         return u'%s\'s Application' % (self.name)
+
+class ApplicationReview(Base):
+    REVIEW_CHOICES = (
+        (0, 'Undecided'),
+        (1, 'Accept'),
+        (2, 'Reject')
+    )
+    application = models.ForeignKey(Application)
+    charlie_comments = models.TextField()
+    charlie_decision = models.PositiveIntegerField(default=0)
+    kevin_comments = models.TextField()
+    kevin_decision = models.PositiveIntegerField(default=0)
+    kingston_comments = models.TextField()
+    kingston_decision = models.PositiveIntegerField(default=0)

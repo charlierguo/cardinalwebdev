@@ -40,7 +40,38 @@ def apply(request):
                   background=cd['background'],
                   comments=cd['comments'])
             app.save()
+            appreview = ApplicationReview(application=app)
+            appreview.save()
             results = json.dumps({ 'status' : 'success' }, ensure_ascii=False)
             return HttpResponse(results, mimetype='application/json')
         return render(request, "application.html", locals())
     return redirect('index')
+
+def review(request):
+    if not request.user.is_superuser:
+        return redirect('index')
+    if request.method == 'POST':
+        app_id = request.POST['application']
+        editor = request.POST['editor']
+        decision = request.POST['decision']
+        comments = request.POST['comments']
+        review = ApplicationReview.objects.get(id=app_id)
+        if editor == 'charlie':
+            review.charlie_decision = decision
+            review.charlie_comments = comments
+        elif editor == 'kevin':
+            review.kevin_decision = decision
+            review.kevin_comments = comments
+        elif editor == 'kingston':
+            review.kingston_decision = decision
+            review.kingston_comments = comments
+        review.save()
+    apps = ApplicationReview.objects.all()
+    return render(request, "review.html", locals())
+
+# apps = Application.objects.all()
+# for app in apps:
+#     appreview, flag = ApplicationReview.objects.get_or_create(application=app)
+#     appreview.application = app
+#     appreview.save()
+#     print 'Saved Application for %s' % app.name

@@ -8,3 +8,5 @@ class ApplicationAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 admin.site.register(Application, ApplicationAdmin)
+
+admin.site.register(ApplicationReview)

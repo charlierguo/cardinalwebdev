@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% endblock %}
+{% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
+
+{% block extra_head %}
+<style type="text/css">
+    .row { width: 99% ;}
+
+    #title { margin-top: 30px; }
+    #title h1 {
+        font-size: 40px;
+    }
+
+    td.basics, td.attendance, td.interest, td.background, td.comments, table td div {
+        font-size: 13px;
+    }
+
+    span.label.toggle {
+      margin-bottom: 10px;
+    }
+
+    span.label.toggle:hover {
+        cursor: pointer;
+    }
+
+    td.basics h4 {
+        margin: 7px 0px 0px 0px;
+        font-size: 16px;
+    }
+
+    .compressed td.basics h4 {
+      font-size: 13px;
+    }
+
+    td form, td form textarea {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    td form textarea {
+      min-width: 140px;
+      min-height: 180px;
+    }
+
+    th.editor {
+      min-width: 85px;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="title" class="row">
+    <div class="twelve columns text-center">
+        <h1 class="red">Application Review</h1>
+    </div>
+</div>
+
+<div class="row">
+<table class="twelve">
+  <thead>
+    <tr>
+      <th>Basics</th>
+      <th>Go?</th>
+      <th>Interest</th>
+      <th>Background</th>
+      <th>Comments</th>
+      <th class="charlie editor">Charlie</th>
+      <th class="kevin editor">Kevin</th>
+      <th class="kingston editor">Kingston</th>
+      <!--th>Toggle</th-->
+    </tr>
+  </thead>
+  <tbody>
+{% for app in apps %}
+    <tr class="expanded hidden">
+      <td class="basics">
+        <span class="label round secondary text-center toggle">Hide</span>
+        <h4>{{ app.application.name }}</h4>
+        <!-- {{ app.application.email }} <br /> -->
+        {{ app.application.major }}
+      </td>
+      <td class="attendance">
+        {% if app.application.attendance %}
+            <span class="label success round">Yes</span>
+        {% else %}
+            <span class="label alert round">No</span>
+        {% endif %}
+      </td>
+      <td class="interest">{{ app.application.interest }}</td>
+      <td class="background">{{ app.application.background }}</td>
+      <td class="comments">{{ app.application.comments }}</td>
+      <td class="charlie">
+        <div class="info-display">
+          {% if app.charlie_decision == 0 %}
+              <span class="label round secondary text-center">Unsure</span>
+          {% elif app.charlie_decision == 1 %}
+              <span class="label round success text-center">Accept</span>
+          {% elif app.charlie_decision == 2 %}
+              <span class="label round alert text-center">Reject</span>
+          {% endif %}
+        </div>
+          <form method="POST"> {% csrf_token %}
+            <input type="hidden" name="application" value="{{ app.id }}" />
+            <input type="hidden" name="editor" value="charlie" />
+            <input type="radio" name="decision" value="0"
+            {% if app.charlie_decision == 0 %}checked{% endif %}> Unsure <br />
+            <input type="radio" name="decision" value="1"
+            {% if app.charlie_decision == 1 %}checked{% endif %}> Accept <br />
+            <input type="radio" name="decision" value="2"
+            {% if app.charlie_decision == 2 %}checked{% endif %}> Reject
+            <textarea class="comments" name="comments">{{ app.charlie_comments }}</textarea>
+            <a href="#" class="button tiny submit">Save</a>
+          </form>
+      </td>
+      <td class="kevin">
+        <div class="info-display">
+          {% if app.kevin_decision == 0 %}
+              <span class="label round secondary text-center">Unsure</span>
+          {% elif app.kevin_decision == 1 %}
+              <span class="label round success text-center">Accept</span>
+          {% elif app.kevin_decision == 2 %}
+              <span class="label round alert text-center">Reject</span>
+          {% endif %}
+        </div>
+          <form method="POST"> {% csrf_token %}
+            <input type="hidden" name="application" value="{{ app.id }}" />
+            <input type="hidden" name="editor" value="kevin" />
+            <input type="radio" name="decision" value="0"
+            {% if app.kevin_decision == 0 %}checked{% endif %}> Unsure <br />
+            <input type="radio" name="decision" value="1"
+            {% if app.kevin_decision == 1 %}checked{% endif %}> Accept <br />
+            <input type="radio" name="decision" value="2"
+            {% if app.kevin_decision == 2 %}checked{% endif %}> Reject
+            <textarea class="comments" name="comments">{{ app.kevin_comments }}</textarea>
+            <a href="#" class="button tiny submit">Save</a>
+          </form>
+      </td>
+      <td class="kingston">
+        <div class="info-display">
+          {% if app.kingston_decision == 0 %}
+              <span class="label round secondary text-center">Unsure</span>
+          {% elif app.kingston_decision == 1 %}
+              <span class="label round success text-center">Accept</span>
+          {% elif app.kingston_decision == 2 %}
+              <span class="label round alert text-center">Reject</span>
+          {% endif %}
+        </div>
+          <form method="POST"> {% csrf_token %}
+            <input type="hidden" name="application" value="{{ app.id }}" />
+            <input type="hidden" name="editor" value="kingston" />
+            <input type="radio" name="decision" value="0"
+            {% if app.kingston_decision == 0 %}checked{% endif %}> Unsure <br />
+            <input type="radio" name="decision" value="1"
+            {% if app.kingston_decision == 1 %}checked{% endif %}> Accept <br />
+            <input type="radio" name="decision" value="2"
+            {% if app.kingston_decision == 2 %}checked{% endif %}> Reject
+            <textarea class="comments" name="comments">{{ app.kingston_comments }}</textarea>
+            <a href="#" class="button tiny submit">Save</a>
+          </form>
+      </td>
+    </tr>
+
+    <tr class="hidden"></tr>
+
+    <tr class="compressed">
+      <td class="basics">
+        <span class="label round text-center toggle">Show</span>
+        <h4>{{ app.application.name }}</h4>
+      </td>
+      <td class="attendance">
+        {% if app.application.attendance %}
+            <span class="label success round">Yes</span>
+        {% else %}
+            <span class="label alert round">No</span>
+        {% endif %}
+      </td>
+      <td class="interest">{{ app.application.interest|truncate(50) }}</td>
+      <td class="background">{{ app.application.background|truncate(50) }}</td>
+      <td class="comments">{{ app.application.comments|truncate(50) }}</td>
+      <td class="charlie">
+        {% if app.charlie_decision == 0 %}
+            <span class="label round secondary text-center">Unsure</span>
+        {% elif app.charlie_decision == 1 %}
+            <span class="label round success text-center">Accept</span>
+        {% elif app.charlie_decision == 2 %}
+            <span class="label round alert text-center">Reject</span>
+        {% endif %}
+      </td>
+      <td class="kevin">
+        {% if app.kevin_decision == 0 %}
+            <span class="label round secondary text-center">Unsure</span>
+        {% elif app.kevin_decision == 1 %}
+            <span class="label round success text-center">Accept</span>
+        {% elif app.kevin_decision == 2 %}
+            <span class="label round alert text-center">Reject</span>
+        {% endif %}
+      </td>
+      <td class="kingston">
+        {% if app.kingston_decision == 0 %}
+            <span class="label round secondary text-center">Unsure</span>
+        {% elif app.kingston_decision == 1 %}
+            <span class="label round success text-center">Accept</span>
+        {% elif app.kingston_decision == 2 %}
+            <span class="label round alert text-center">Reject</span>
+        {% endif %}
+      </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('table tr.expanded').each(function(index, element) {
+        var anchor = $(element);
+        anchor.find('span.label.toggle').click(function(){
+            anchor.nextAll('.compressed').first().toggleClass('hidden');
+            anchor.toggleClass('hidden');
+        });
+
+        var form = anchor.find('form');
+        form.find('a.submit').click(function(){
+          form.submit();
+        });
+    });
+
+    $('table tr.compressed').each(function(index, element) {
+        var anchor = $(element);
+        anchor.find('span.label.toggle').click(function(){
+            anchor.prevAll('.expanded').first().toggleClass('hidden');
+            anchor.toggleClass('hidden');
+        });
+    });
+
+});
+
+</script>
+
+
+{% endblock %}

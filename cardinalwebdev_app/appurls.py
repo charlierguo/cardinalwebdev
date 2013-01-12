@@ -12,6 +12,7 @@ def smartlogin(request, **kwargs):
 urlpatterns = patterns('cardinalwebdev_app.views',
     url(r'^$', 'index', name='index'),
     url(r'^apply/$', 'apply', name='apply'),
+    url(r'^review/$', 'review', name='review'),
     url(r'^login/$', smartlogin, kwargs=dict(template_name='login.html'), name='login'),
     url(r'^logout/$', logout, kwargs=dict(next_page='/'), name='logout'),
 )
