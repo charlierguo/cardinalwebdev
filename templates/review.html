@@ -18,20 +18,22 @@
     }
 
     #review .basics p {
-        line-height: 1.25   ;
+        line-height: 1.25;
         margin-top: 3px;
     }
 
     #review tr:hover {
         background-color: whiteSmoke;
-    }
-
-    #review th, #review td:not(.charlie):not(.kevin):not(.kingston) {
         cursor: pointer;
     }
 
-    #review form, #review form textarea {
+    #review form {
+        cursor: default;
+    }
+
+    #review form, #review textarea, #review form p {
         margin-top: 10px;
+        margin-bottom: 0;
     }
 
     #review label {
@@ -49,6 +51,15 @@
 
     #review .editor {
         width: 160px;
+    }
+
+    #review .ajaxFired {
+        font-weight: 900;
+    }
+
+    #review .total {
+        font-weight: 900;
+        text-align: center;
     }
 
 </style>
@@ -81,7 +92,7 @@
         </thead>
         <tbody>
             {% for app in apps %}
-                <tr>
+                <tr id="app-{{ app.id }}">
                     <td class="basics">
                         <h4>{{ app.application.name }}</h4>
                         <p>{{ app.application.major }}</p>
@@ -126,7 +137,7 @@
                             <span class="label round alert text-center">Reject</span>
                         {% endif %}
 
-                        <form class="expanded hidden" method="POST"> {% csrf_token %}
+                        <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="charlie" />
                             <input type="radio" name="decision" value="0" id="charlie_decision_0_{{ app.id }}"
@@ -139,7 +150,7 @@
                             {% if app.charlie_decision == -1 %}checked{% endif %}>
                             <label for="charlie_decision_2_{{ app.id }}">Reject</label>
                             <textarea name="comments">{{ app.charlie_comments }}</textarea>
-                            <a href="#" class="button tiny submit">Save</a>
+                            <p class="ajaxFired"></p>
                         </form>
                     </td>
                     <td class="kevin">
@@ -151,7 +162,7 @@
                             <span class="label round alert text-center">Reject</span>
                         {% endif %}
 
-                        <form class="expanded hidden" method="POST"> {% csrf_token %}
+                        <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="kevin" />
                             <input type="radio" name="decision" value="0" id="kevin_decision_0_{{ app.id }}"
@@ -164,7 +175,7 @@
                             {% if app.kevin_decision == -1 %}checked{% endif %}>
                             <label for="kevin_decision_2_{{ app.id }}">Reject</label>
                             <textarea name="comments">{{ app.kevin_comments }}</textarea>
-                            <a href="#" class="button tiny submit">Save</a>
+                            <p class="ajaxFired"></p>
                         </form>
                     </td>
                     <td class="kingston">
@@ -176,7 +187,7 @@
                             <span class="label round alert text-center">Reject</span>
                         {% endif %}
 
-                        <form class="expanded hidden" method="POST"> {% csrf_token %}
+                        <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="kingston" />
                             <input type="radio" name="decision" value="0" id="kingston_decision_0_{{ app.id }}"
@@ -189,7 +200,7 @@
                             {% if app.kingston_decision == -1 %}checked{% endif %}>
                             <label for="kingston_decision_2_{{ app.id }}">Reject</label>
                             <textarea name="comments">{{ app.kingston_comments }}</textarea>
-                            <a href="#" class="button tiny submit">Save</a>
+                            <p class="ajaxFired"></p>
                         </form>
                     </td>
                     <td class="total">{{ app.total }}</td>
@@ -210,14 +221,51 @@
 
         $('tbody tr').each(function(index, element) {
             var anchor = $(element);
-            anchor.find('td').not('.charlie, .kevin, .kingston').click(function(){
-                anchor.find('.compressed').toggleClass('hidden');
-                anchor.find('.expanded').toggleClass('hidden');
+            anchor.click(function(e) {
+                if (!$(e.srcElement).is('form, input, label, textarea, a.button')) {
+                    anchor.find('.compressed').toggleClass('hidden');
+                    anchor.find('.expanded').toggleClass('hidden');
+                }
             });
 
-            anchor.find('a.submit').click(function(){
-                $(this).parent().submit();
+            anchor.find('input').click(function() {
+                ajaxSubmit($(this));
             });
+
+            var timeout;
+            anchor.find('textarea').on('textchange', function() {
+                clearTimeout(timeout);
+                var self = $(this);
+                var status = self.parent().find('.ajaxFired');
+                status.text('Typing...');
+                timeout = setTimeout(function() {
+                    ajaxSubmit(self);
+                    status.text('Saved');
+                }, 800);
+            });
+
+            var ajaxSubmit = function(elem) {
+                var span = elem.parent().prev();
+                var status = elem.parent().find('.ajaxFired');
+                var total = anchor.find('.total');
+                $.ajax({
+                    type: 'POST',
+                    url: '/submit_review/',
+                    data: elem.parent().serialize(),
+                    success: function(data) {
+                        span.removeClass('secondary alert success');
+                        if (data['decision'] == 0) {
+                            span.addClass('secondary').text('Unsure');
+                        } else if (data['decision'] == 1) {
+                            span.addClass('success').text('Accept');
+                        } else if (data['decision'] == -1) {
+                            span.addClass('alert').text('Reject');
+                        }
+                        status.text('Saved');
+                        total.text(data['total']);
+                    }
+                });
+            };
         });
     });
 </script>

@@ -50,10 +50,14 @@ def apply(request):
 def review(request):
     if not request.user.is_superuser:
         return redirect('index')
-    if request.method == 'POST':
-        app_id = request.POST['application']
+    apps = ApplicationReview.objects.order_by('created_at')
+    return render(request, "review.html", locals())
+
+def submit_review(request):
+    if request.is_ajax() and request.method == "POST":
+        app_id = int(request.POST['application'])
         editor = request.POST['editor']
-        decision = request.POST['decision']
+        decision = int(request.POST['decision'])
         comments = request.POST['comments']
         review = ApplicationReview.objects.get(id=app_id)
         if editor == 'charlie':
@@ -66,8 +70,9 @@ def review(request):
             review.kingston_decision = decision
             review.kingston_comments = comments
         review.save()
-    apps = ApplicationReview.objects.order_by('created_at')
-    return render(request, "review.html", locals())
+        results = json.dumps({ 'decision' : decision, 'total' : review.total }, ensure_ascii=False)
+        return HttpResponse(results, mimetype='application/json')
+    return redirect('review')
 
 # Script to create ApplicationReview objects for previous applications
 #
