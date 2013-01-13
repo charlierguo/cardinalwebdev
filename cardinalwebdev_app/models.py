@@ -33,11 +33,11 @@ class ApplicationReview(Base):
     )
     application       = models.ForeignKey(Application)
     charlie_comments  = models.TextField()
-    charlie_decision  = models.PositiveIntegerField(default=0)
+    charlie_decision  = models.IntegerField(default=0)
     kevin_comments    = models.TextField()
-    kevin_decision    = models.PositiveIntegerField(default=0)
+    kevin_decision    = models.IntegerField(default=0)
     kingston_comments = models.TextField()
-    kingston_decision = models.PositiveIntegerField(default=0)
+    kingston_decision = models.IntegerField(default=0)
 
     def __unicode__(self):
         return u'%s' % (self.application)
