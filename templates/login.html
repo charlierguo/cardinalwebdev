@@ -1,14 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Log In - {{ super() }}{% endblock %}
+{% block title %}Log In | {{ super() }}{% endblock %}
 {% block content %}
+
+<div id="title" class="row">
+    <div class="five columns centered text-center">
+        <h2 class="red">Welcome</h2>
+    </div>
+</div>
 
 <div id="login" class="row">
     <div class="five columns centered">
-        <h2>Welcome</h2>
-
         <form action="{% url login %}" method="post">{% csrf_token %}
 
-            {{ form.as_ul()|safe }}
+            {{ form|safe }}
             <input type="hidden" name="next" value="{{ next }}" />
             <input class="success button" type="submit" value="Log In" />
 

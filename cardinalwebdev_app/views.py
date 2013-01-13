@@ -66,9 +66,11 @@ def review(request):
             review.kingston_decision = decision
             review.kingston_comments = comments
         review.save()
-    apps = ApplicationReview.objects.all()
+    apps = ApplicationReview.objects.order_by('created_at')
     return render(request, "review.html", locals())
 
+# Script to create ApplicationReview objects for previous applications
+#
 # apps = Application.objects.all()
 # for app in apps:
 #     appreview, flag = ApplicationReview.objects.get_or_create(application=app)

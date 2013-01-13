@@ -7,6 +7,11 @@ class ApplicationAdmin(admin.ModelAdmin):
     ordering = ['-created_at']
     search_fields = ['name']
 
-admin.site.register(Application, ApplicationAdmin)
+class ApplicationReviewAdmin(admin.ModelAdmin):
+    list_display = ('application', 'total', 'charlie_decision', 'charlie_comments', 'kevin_decision', 'kevin_comments', 'kingston_decision', 'kingston_comments', 'created_at')
+    list_filter = ('created_at',)
+    ordering = ['-created_at']
+    search_fields = ['application']
 
-admin.site.register(ApplicationReview)
+admin.site.register(Application, ApplicationAdmin)
+admin.site.register(ApplicationReview, ApplicationReviewAdmin)
