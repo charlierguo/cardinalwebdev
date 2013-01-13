@@ -17,6 +17,8 @@ from cardinalwebdev_app.models import *
 from cardinalwebdev_app.model_forms import *
 from cardinalwebdev_app.forms import *
 
+import operator
+
 try:
     import json
 except ImportError:
@@ -50,7 +52,7 @@ def apply(request):
 def review(request):
     if not request.user.is_superuser:
         return redirect('index')
-    apps = ApplicationReview.objects.order_by('created_at')
+    apps = sorted(ApplicationReview.objects.all(), key=operator.attrgetter('application.created_at'))
     return render(request, "review.html", locals())
 
 def submit_review(request):
