@@ -244,14 +244,20 @@
                 }, 800);
             });
 
-            var ajaxSubmit = function(elem) {
-                var span = elem.parent().prev();
-                var status = elem.parent().find('.ajaxFired');
+            anchor.find('textarea').on('blur', function() {
+                var self = $(this);
+                ajaxSubmit(self);
+                self.parent().find('.ajaxFired').text('Saved');
+            });
+
+            var ajaxSubmit = function(self) {
+                var span = self.parent().prev();
+                var status = self.parent().find('.ajaxFired');
                 var total = anchor.find('.total');
                 $.ajax({
                     type: 'POST',
                     url: '/submit_review/',
-                    data: elem.parent().serialize(),
+                    data: self.parent().serialize(),
                     success: function(data) {
                         span.removeClass('secondary alert success');
                         if (data['decision'] == 0) {
