@@ -72,9 +72,17 @@ def submit_review(request):
             review.kingston_decision = decision
             review.kingston_comments = comments
         review.save()
+<<<<<<< Updated upstream
         results = json.dumps({ 'decision' : decision, 'total' : review.total }, ensure_ascii=False)
         return HttpResponse(results, mimetype='application/json')
     return redirect('review')
+=======
+        if request.is_ajax():
+            app = review
+            return render(request, "_review.html", locals())
+    apps = ApplicationReview.objects.all()
+    return render(request, "review.html", locals())
+>>>>>>> Stashed changes
 
 # Script to create ApplicationReview objects for previous applications
 #
