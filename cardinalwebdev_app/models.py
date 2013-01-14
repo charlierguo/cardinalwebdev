@@ -27,9 +27,11 @@ class Application(Base):
 
 class ApplicationReview(Base):
     REVIEW_CHOICES = (
-        (0, 'Undecided'),
+        (-2, 'Highly Reject'),
+        (-1, 'Reject'),
+        (0, 'Unsure'),
         (1, 'Accept'),
-        (-1, 'Reject')
+        (2, 'Highly Accept'),
     )
     application       = models.ForeignKey(Application)
     charlie_comments  = models.TextField()

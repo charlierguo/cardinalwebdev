@@ -135,76 +135,106 @@
                         </div>
                     </td>
                     <td class="charlie">
-                        {% if app.charlie_decision == 0 %}
+                        {% if app.charlie_decision == -2 %}
+                            <span class="label round alert text-center">Highly Reject</span>
+                        {% elif app.charlie_decision == -1 %}
+                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.charlie_decision == 0 %}
                             <span class="label round secondary text-center">Unsure</span>
                         {% elif app.charlie_decision == 1 %}
                             <span class="label round success text-center">Accept</span>
-                        {% elif app.charlie_decision == -1 %}
-                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.charlie_decision == 2 %}
+                            <span class="label round success text-center">Highly Accept</span>
                         {% endif %}
 
                         <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="charlie" />
+                            <input type="radio" name="decision" value="-2" id="charlie_decision_-2_{{ app.id }}"
+                            {% if app.charlie_decision == -2 %}checked{% endif %}>
+                            <label for="charlie_decision_-2_{{ app.id }}">Highly Reject</label><br/>
+                            <input type="radio" name="decision" value="-1" id="charlie_decision_-1_{{ app.id }}"
+                            {% if app.charlie_decision == -1 %}checked{% endif %}>
+                            <label for="charlie_decision_-1_{{ app.id }}">Reject</label><br/>
                             <input type="radio" name="decision" value="0" id="charlie_decision_0_{{ app.id }}"
                             {% if app.charlie_decision == 0 %}checked{% endif %}>
                             <label for="charlie_decision_0_{{ app.id }}">Unsure</label><br/>
                             <input type="radio" name="decision" value="1" id="charlie_decision_1_{{ app.id }}"
                             {% if app.charlie_decision == 1 %}checked{% endif %}>
                             <label for="charlie_decision_1_{{ app.id }}">Accept</label><br/>
-                            <input type="radio" name="decision" value="-1" id="charlie_decision_2_{{ app.id }}"
-                            {% if app.charlie_decision == -1 %}checked{% endif %}>
-                            <label for="charlie_decision_2_{{ app.id }}">Reject</label>
+                            <input type="radio" name="decision" value="2" id="charlie_decision_2_{{ app.id }}"
+                            {% if app.charlie_decision == 2 %}checked{% endif %}>
+                            <label for="charlie_decision_2_{{ app.id }}">Highly Accept</label>
                             <textarea name="comments">{{ app.charlie_comments }}</textarea>
                             <p class="ajaxFired"></p>
                         </form>
                     </td>
                     <td class="kevin">
-                        {% if app.kevin_decision == 0 %}
+                        {% if app.kevin_decision == -2 %}
+                            <span class="label round alert text-center">Highly Reject</span>
+                        {% elif app.kevin_decision == -1 %}
+                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.kevin_decision == 0 %}
                             <span class="label round secondary text-center">Unsure</span>
                         {% elif app.kevin_decision == 1 %}
                             <span class="label round success text-center">Accept</span>
-                        {% elif app.kevin_decision == -1 %}
-                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.kevin_decision == 2 %}
+                            <span class="label round success text-center">Highly Accept</span>
                         {% endif %}
 
                         <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="kevin" />
+                            <input type="radio" name="decision" value="-2" id="kevin_decision_-2_{{ app.id }}"
+                            {% if app.kevin_decision == -2 %}checked{% endif %}>
+                            <label for="kevin_decision_-2_{{ app.id }}">Highly Reject</label><br/>
+                            <input type="radio" name="decision" value="-1" id="kevin_decision_-1_{{ app.id }}"
+                            {% if app.kevin_decision == -1 %}checked{% endif %}>
+                            <label for="kevin_decision_-1_{{ app.id }}">Reject</label><br/>
                             <input type="radio" name="decision" value="0" id="kevin_decision_0_{{ app.id }}"
                             {% if app.kevin_decision == 0 %}checked{% endif %}>
                             <label for="kevin_decision_0_{{ app.id }}">Unsure</label><br/>
                             <input type="radio" name="decision" value="1" id="kevin_decision_1_{{ app.id }}"
                             {% if app.kevin_decision == 1 %}checked{% endif %}>
                             <label for="kevin_decision_1_{{ app.id }}">Accept</label><br/>
-                            <input type="radio" name="decision" value="-1" id="kevin_decision_2_{{ app.id }}"
-                            {% if app.kevin_decision == -1 %}checked{% endif %}>
-                            <label for="kevin_decision_2_{{ app.id }}">Reject</label>
+                            <input type="radio" name="decision" value="2" id="kevin_decision_2_{{ app.id }}"
+                            {% if app.kevin_decision == 2 %}checked{% endif %}>
+                            <label for="kevin_decision_2_{{ app.id }}">Highly Accept</label>
                             <textarea name="comments">{{ app.kevin_comments }}</textarea>
                             <p class="ajaxFired"></p>
                         </form>
                     </td>
                     <td class="kingston">
-                        {% if app.kingston_decision == 0 %}
+                        {% if app.kingston_decision == -2 %}
+                            <span class="label round alert text-center">Highly Reject</span>
+                        {% elif app.kingston_decision == -1 %}
+                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.kingston_decision == 0 %}
                             <span class="label round secondary text-center">Unsure</span>
                         {% elif app.kingston_decision == 1 %}
                             <span class="label round success text-center">Accept</span>
-                        {% elif app.kingston_decision == -1 %}
-                            <span class="label round alert text-center">Reject</span>
+                        {% elif app.kingston_decision == 2 %}
+                            <span class="label round success text-center">Highly Accept</span>
                         {% endif %}
 
                         <form action="{% url submit_review %}" class="expanded hidden" method="POST"> {% csrf_token %}
                             <input type="hidden" name="application" value="{{ app.id }}" />
                             <input type="hidden" name="editor" value="kingston" />
+                            <input type="radio" name="decision" value="-2" id="kingston_decision_-2_{{ app.id }}"
+                            {% if app.kingston_decision == -2 %}checked{% endif %}>
+                            <label for="kingston_decision_-2_{{ app.id }}">Highly Reject</label><br/>
+                            <input type="radio" name="decision" value="-1" id="kingston_decision_-1_{{ app.id }}"
+                            {% if app.kingston_decision == -1 %}checked{% endif %}>
+                            <label for="kingston_decision_-1_{{ app.id }}">Reject</label><br/>
                             <input type="radio" name="decision" value="0" id="kingston_decision_0_{{ app.id }}"
                             {% if app.kingston_decision == 0 %}checked{% endif %}>
                             <label for="kingston_decision_0_{{ app.id }}">Unsure</label><br/>
                             <input type="radio" name="decision" value="1" id="kingston_decision_1_{{ app.id }}"
                             {% if app.kingston_decision == 1 %}checked{% endif %}>
                             <label for="kingston_decision_1_{{ app.id }}">Accept</label><br/>
-                            <input type="radio" name="decision" value="-1" id="kingston_decision_2_{{ app.id }}"
-                            {% if app.kingston_decision == -1 %}checked{% endif %}>
-                            <label for="kingston_decision_2_{{ app.id }}">Reject</label>
+                            <input type="radio" name="decision" value="2" id="kingston_decision_2_{{ app.id }}"
+                            {% if app.kingston_decision == 2 %}checked{% endif %}>
+                            <label for="kingston_decision_2_{{ app.id }}">Highly Accept</label>
                             <textarea name="comments">{{ app.kingston_comments }}</textarea>
                             <p class="ajaxFired"></p>
                         </form>
@@ -281,12 +311,16 @@
                     data: self.parent().serialize(),
                     success: function(data) {
                         span.removeClass('secondary alert success');
-                        if (data['decision'] == 0) {
+                        if (data['decision'] == -2) {
+                            span.addClass('alert').text('Highly Reject');
+                        } else if (data['decision'] == -1) {
+                            span.addClass('alert').text('Reject');
+                        } else if (data['decision'] == 0) {
                             span.addClass('secondary').text('Unsure');
                         } else if (data['decision'] == 1) {
                             span.addClass('success').text('Accept');
-                        } else if (data['decision'] == -1) {
-                            span.addClass('alert').text('Reject');
+                        } else if (data['decision'] == 2) {
+                            span.addClass('success').text('Highly Accept');
                         }
                         status.text('Saved');
                         total.text(data['total']);
