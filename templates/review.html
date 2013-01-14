@@ -6,7 +6,7 @@
 <style type="text/css">
 
     #review .row { width: 99%; }
-    #review #title { margin-top: 30px; }
+    #review #title { margin: 30px 0 15px; }
     #review #title h1 { font-size: 40px; }
 
     #review h4, #review td, #review p, #review form, #review label, #review textarea {
@@ -15,6 +15,11 @@
 
     #review h4 {
         margin: 0;
+    }
+
+    #review #expandall {
+        float: right;
+        margin-top: -48px;
     }
 
     #review .basics p {
@@ -71,7 +76,8 @@
 
 <div id="title" class="row">
     <div class="twelve columns text-center">
-        <h1 class="red">Application Review</h1>
+        <h1 class="red">Application Review ({{ apps|count }})</h1>
+        <button id="expandall" class="button">Expand All</button>
     </div>
 </div>
 
@@ -218,6 +224,21 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('table').tablesorter();
+
+        $('#expandall').click(function(e) {
+            e.preventDefault();
+            var text = $(this).text();
+            if (text === "Expand All") {
+                $(this).text("Collapse All");
+            } else if (text === "Collapse All") {
+                $(this).text("Expand All");
+            }
+            $('tbody tr').each(function(index, element) {
+                var anchor = $(element);
+                anchor.find('.compressed').toggleClass('hidden');
+                anchor.find('.expanded').toggleClass('hidden');
+            });
+        });
 
         $('tbody tr').each(function(index, element) {
             var anchor = $(element);
