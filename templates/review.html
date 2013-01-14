@@ -101,7 +101,10 @@
                 <tr id="app-{{ app.id }}">
                     <td class="basics">
                         <h4>{{ app.application.name }}</h4>
-                        <p>{{ app.application.major }}</p>
+                        <p>
+                            {{ app.application.major }}<br/>
+                            {{ app.application.email }}
+                        </p>
                     </td>
                     <td class="attendance">
                         {% if app.application.attendance %}
@@ -134,7 +137,7 @@
                             {{ app.application.comments|linebreaks }}
                         </div>
                     </td>
-                    <td class="charlie">
+                    <td class="charlie editor">
                         {% if app.charlie_decision == -2 %}
                             <span class="label round alert text-center">Highly Reject</span>
                         {% elif app.charlie_decision == -1 %}
@@ -169,7 +172,7 @@
                             <p class="ajaxFired"></p>
                         </form>
                     </td>
-                    <td class="kevin">
+                    <td class="kevin editor">
                         {% if app.kevin_decision == -2 %}
                             <span class="label round alert text-center">Highly Reject</span>
                         {% elif app.kevin_decision == -1 %}
@@ -204,7 +207,7 @@
                             <p class="ajaxFired"></p>
                         </form>
                     </td>
-                    <td class="kingston">
+                    <td class="kingston editor">
                         {% if app.kingston_decision == -2 %}
                             <span class="label round alert text-center">Highly Reject</span>
                         {% elif app.kingston_decision == -1 %}
@@ -253,7 +256,15 @@
 <script src="{{ MEDIA_URL }}js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('table').tablesorter();
+        $('table').tablesorter({
+            textExtraction: function(node) {
+                if ($(node.childNodes[1]).is('span.label')) {
+                    return node.childNodes[1].innerHTML;
+                } else {
+                    return node.innerHTML;
+                }
+            }
+        });
 
         $('#expandall').click(function(e) {
             e.preventDefault();
@@ -324,6 +335,7 @@
                         }
                         status.text('Saved');
                         total.text(data['total']);
+                        $('table').trigger('update');
                     }
                 });
             };
