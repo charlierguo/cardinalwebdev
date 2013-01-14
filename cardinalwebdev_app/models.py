@@ -26,13 +26,6 @@ class Application(Base):
         return u'%s\'s Application' % (self.name)
 
 class ApplicationReview(Base):
-    REVIEW_CHOICES = (
-        (-2, 'Highly Reject'),
-        (-1, 'Reject'),
-        (0, 'Unsure'),
-        (1, 'Accept'),
-        (2, 'Highly Accept'),
-    )
     application       = models.ForeignKey(Application)
     charlie_comments  = models.TextField()
     charlie_decision  = models.IntegerField(default=0)
