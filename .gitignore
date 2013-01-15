@@ -3,4 +3,4 @@
 *.pyc
 .DS_Store
 db.sql
-notes.txt
+notes/
