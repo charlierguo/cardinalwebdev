@@ -16,4 +16,6 @@ urlpatterns = patterns('cardinalwebdev_app.views',
     url(r'^submit_review/$', 'submit_review', name='submit_review'),
     url(r'^login/$', smartlogin, kwargs=dict(template_name='login.html'), name='login'),
     url(r'^logout/$', logout, kwargs=dict(next_page='/'), name='logout'),
+
+    url(r'^students/$', 'students', name='students'),
 )

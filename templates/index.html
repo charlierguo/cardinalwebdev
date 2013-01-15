@@ -6,6 +6,16 @@
 
 {% block content %}
 
+<a href="{% url students %}">
+    <div id="topbar">
+        <div class="row">
+            <div class="twelve columns text-center">
+                <h3>Congratulations to our accepted students!</h3>
+            </div>
+        </div>
+    </div>
+</a>
+
 <div id="title" class="row">
     <div class="twelve columns text-center">
         <h1 class="red">Cardinal Web Dev</h1>
@@ -19,12 +29,8 @@
 
 <div class="row">
     <div class="six columns mobile-four centered">
-        <button class="button radius alert apply">Apply Now</button>
+        <button class="button radius alert apply" disabled>Application Over</button>
     </div>
-</div>
-
-<div class="app-wrapper">
-    {% include 'application.html' %}
 </div>
 
 <div id="info" class="row">
@@ -44,14 +50,10 @@
     <div class="four columns">
         <h3>How?</h3>
         <p>
-            <a href="#" class="apply">Apply here</a>, no Axess signup.<br/>
+            Apply online, no Axess signup.<br/>
             Due <strong>Monday 1/14 11:59pm</strong>
         </p>
     </div>
-</div>
-
-<div class="app-wrapper">
-    {% include 'application.html' %}
 </div>
 
 <div id="curriculum" class="row title">
@@ -123,7 +125,7 @@
         </p>
         <h3>How do I get in?</h3>
         <p>
-            <a href="#" class="apply">Apply here</a> by the deadline, <strong>Monday 1/14 11:59pm</strong>.
+            Apply by the deadline, <strong>Monday 1/14 11:59pm</strong>.
         </p>
         <h3>What is going to be covered?</h3>
         <p>
@@ -143,10 +145,6 @@
             See below.
         </p>
     </div>
-</div>
-
-<div class="app-wrapper">
-    {% include 'application.html' %}
 </div>
 
 <div class="row title">
@@ -181,16 +179,6 @@
         </h2>
         <h6>*Already know Django and want to help teach? Email us!</h6>
     </div>
-</div>
-
-<div class="row">
-    <div class="six columns mobile-four centered">
-        <button class="button radius alert apply last">Apply Now</button>
-    </div>
-</div>
-
-<div class="app-wrapper">
-    {% include 'application.html' %}
 </div>
 
 {% endblock %}

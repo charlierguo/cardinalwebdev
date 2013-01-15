@@ -67,6 +67,27 @@ input:focus, textarea:focus {
 }
 
 /* -----------------------------------------
+   TOPBAR STYLES
+----------------------------------------- */
+
+#topbar {
+    width: 100%;
+    height: 65px;
+    background-color: #C41E3A;
+    margin: 0;
+}
+
+#topbar:hover {
+    background-color: #B11B34;
+}
+
+#topbar h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #fff;
+    font-size: 3.6rem;
+}
+
+/* -----------------------------------------
    TITLE STYLES
 ----------------------------------------- */
 
@@ -375,6 +396,10 @@ input:focus, textarea:focus {
 /* iPad Portrait View */
 
 @media only screen and (max-width: 768px) {
+    #topbar {
+        height: 110px;
+    }
+
     #title h1 {
         font-size: 9rem;
         line-height: 9rem;

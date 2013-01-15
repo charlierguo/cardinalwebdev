@@ -25,8 +25,11 @@ except ImportError:
     import simplejson as json
 
 def index(request):
-    application = ApplyForm()
     return render(request, "index.html", locals())
+
+# -----------------------------------------
+#   APPLICATION FUNCTIONS
+# -----------------------------------------
 
 def apply(request):
     if request.is_ajax() and request.method == "POST":
@@ -76,11 +79,9 @@ def submit_review(request):
         return HttpResponse(results, mimetype='application/json')
     return redirect('review')
 
-# Script to create ApplicationReview objects for previous applications
-#
-# apps = Application.objects.all()
-# for app in apps:
-#     appreview, flag = ApplicationReview.objects.get_or_create(application=app)
-#     appreview.application = app
-#     appreview.save()
-#     print 'Saved Application for %s' % app.name
+# -----------------------------------------
+#   STUDENT FUNCTIONS
+# -----------------------------------------
+
+def students(request):
+    return render(request, "students.html", locals())
