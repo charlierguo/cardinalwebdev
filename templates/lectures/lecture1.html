@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}reveal/css/reveal.min.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}reveal/css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="{{ MEDIA_URL }}reveal/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="{{ MEDIA_URL }}reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Welcome to</h2>
+          <h1>Cardinal Web Dev!</h1>
+          <br />
+          <h3>You made it.</h3>
+        </section>
+
+        <section>
+          <h2>Who Are We?</h2>
+          <a class="image fragment" href="#" target="">
+            <img width="250" height="" src="http://cardinalwebdev.com/media/images/kingston.jpg" alt="Meny">
+          </a>
+          <a class="image" href="#" target="">
+            <img width="250" height="" src="http://cardinalwebdev.com/media/images/charlie.jpg" alt="Meny">
+          </a>
+          <a class="image fragment" href="#" target="">
+            <img width="250" height="" src="http://cardinalwebdev.com/media/images/kevin.jpg" alt="Meny">
+          </a>
+        </section>
+
+        <section>
+          <h2>What To Expect From Us</h2>
+          <p class="fragment">Course Topics</p>
+          <p class="fragment">Self-Starter vs. Start-Up CTO</p>
+          <p class="fragment">Resources (On Class Site)</p>
+          <p class="fragment">Commitment</p>
+        </section>
+
+        <section>
+          <h2>What We Expect From You</h2>
+          <p class="fragment">Commitment</p>
+        </section>
+
+        <section>
+          <h2>Commitment. Seriously.</h2>
+          <ul>
+            <li class="fragment">This Room, Every Tuesday</li>
+            <li class="fragment">Nearly 200 Applications</li>
+            <li class="fragment">One (1) Absence</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>What We Expect From You</h2>
+          <p class="">Commitment</p>
+          <p class="fragment">Goals</p>
+          <p class="fragment">Homeworks</p>
+          <p class="fragment">Laptops + Power Cords</p>
+          <p class="fragment">No Food! Water Only!</p>
+          <p class="fragment">Feedback</p>
+        </section>
+
+        <section>
+          <h2>Any Questions?</h2>
+        </section>
+
+        <section>
+          <h2>Get To Know Your Neighbor</h2>
+          <p class="fragment">Pair Programming</p>
+          <p class="fragment">Excellent TAs</p>
+        </section>
+
+        <section>
+          <h1>Lecture 1: HTML, CSS, &amp; Bootstrap</h1>
+        </section>
+
+        <section>
+          <h2>What Are HTML and CSS?</h2>
+          <p class="fragment">HyperText Markup Language</p>
+          <p class="fragment">Cascading Style Sheets</p>
+          <p class="fragment">Structure and Meaning vs. Style and Appearance</p>
+        </section>
+
+        <section>
+          <h2>Some Common Terms</h2>
+          <ul>
+            <li class="fragment">Elements</li>
+            <pre class="fragment"><code>&lt;a&gt;</code></pre>
+            <li class="fragment">Tags</li>
+            <pre class="fragment"><code>&lt;a&gt;...&lt;/a&gt;</code></pre>
+            <li class="fragment">Attributes</li>
+            <pre class="fragment"><code>&lt;a href="http://cardinalwebdev.com" class="logo"&gt;...&lt;/a&gt;</code></pre>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Some (More) Common Terms</h2>
+          <ul>
+            <li class="fragment">Selectors</li>
+
+            <pre class="fragment"><code>p { ... }</code></pre>
+            <li class="fragment">Properties</li>
+<pre class="fragment"><code>p {
+  color: #fff;
+  font-size: 16px;
+}</code></pre>
+            <li class="fragment">Values</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Structure of an HTML Document</h2>
+<pre class="fragment"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a website.&lt;/p&gt;
+    &lt;!--This is a comment.--&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Structure of a CSS Document</h2>
+          <p>Long Hand vs. Short Hand</p>
+          <pre><code>/* Long Hand */
+p {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+/* Short Hand */
+p {
+  padding: 10px 20px;
+}
+/* Short Hand */
+p {
+  padding: 10px;
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>Selectors!</h2>
+          <p class="fragment">Type: <code>p</code></p>
+          <p class="fragment">Class: <code>.myclass</code></p>
+          <p class="fragment">ID: <code>#myid</code></p>
+          <p class="fragment">Combos: <code>ul li, ul li a, ul li.trololo</code></p>
+          <p class="fragment">Advanced Selectors</p>
+        </section>
+
+        <section>
+          <h2>Properties!</h2>
+          <p class="fragment">Too Many To Name!</p>
+          <p class="fragment"><a href="http://dochub.io/#css/">dochub.io</a></p>
+        </section>
+
+        <section>
+          <h2>Using CSS</h2>
+          <p class="fragment">External File (Good)</p>
+          <pre class="fragment"><code>&lt;link rel="stylesheet" href="style.css" /&gt;</code></pre>
+          <p class="fragment">Internal Tags (Bad)</p>
+          <pre class="fragment"><code>&lt;style&gt;...&lt;/style&gt;</code></pre>
+          <p class="fragment">Inline (No!)</p>
+          <pre class="fragment"><code>&lt;div style="..."&gt;...&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>Some More HTMLs</h2>
+          <h3>(Just In Case)</h3>
+          <p class="fragment">Forms</p>
+          <p class="fragment"><code>form, input</code></p>
+          <p class="fragment">Lists</p>
+          <p class="fragment"><code>ol, ul, li</code></p>
+          <p class="fragment">Tables</p>
+          <p class="fragment"><code>table, tr, th, td</code></p>
+        </section>
+
+        <section>
+          <h2>Some More CSSes</h2>
+          <h3>(Just In Case)</h3>
+          <p class="fragment">Box Model</p>
+          <p class="fragment"><code>margin, border, padding</code></p>
+          <p class="fragment">Colors</p>
+          <p class="fragment"><code>hex vs. names</code></p>
+          <p class="fragment">Fonts</p>
+          <p class="fragment"><code>font-family, font-weight, font-size, text-decoration, text-align</code></p>
+        </section>
+
+        <section>
+          <h2>Playtime!</h2>
+        </section>
+
+
+        <section>
+          <h2>Bootstrap, by Twitter</h2>
+          <p class="fragment">Warning: The Internet Won't Be The Same</p>
+          <p class="fragment">Why Is It Useful?</p>
+
+        </section>
+
+      </div>
+    </div>
+
+
+    <script src="{{ MEDIA_URL }}reveal/lib/js/head.min.js"></script>
+    <script src="{{ MEDIA_URL }}reveal/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '{{ MEDIA_URL }}reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '{{ MEDIA_URL }}reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ MEDIA_URL }}reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ MEDIA_URL }}reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{ MEDIA_URL }}reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '{{ MEDIA_URL }}reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: '{{ MEDIA_URL }}reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
