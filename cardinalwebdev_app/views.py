@@ -85,3 +85,6 @@ def submit_review(request):
 
 def students(request):
     return render(request, "students.html", locals())
+
+def lecture(request, lecture_id):
+    return render(request, "lectures/lecture%s.html" % lecture_id, locals())
