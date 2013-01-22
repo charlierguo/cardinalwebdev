@@ -84,6 +84,7 @@ def submit_review(request):
 # -----------------------------------------
 
 def students(request):
+    students = Student.objects.all()
     return render(request, "students.html", locals())
 
 def lecture(request, lecture_id):

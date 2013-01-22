@@ -2,21 +2,188 @@
 {% block title %}Students | {{ super() }}{% endblock %}
 {% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
 
-{% block extra_head %}{% endblock %}
+{% block extra_head %}
+
+<style class="text/css">
+  .row {
+    margin-bottom: 30px;
+  }
+
+
+  .th-inner {
+    max-height: 200px;
+    max-width: 200px;
+    overflow: hidden;
+  }
+
+  .student-info .th {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+  }
+
+  .th {
+    display: block;
+    border: solid 4px #fff;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
+    -o-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    transition-duration: 300ms;
+  }
+
+  .th img {
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    -ms-border-radius: none;
+    -o-border-radius: none;
+    border-radius: none;
+  }
+
+  .flip-container {
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    width: 200px;
+    height: 200px;
+  }
+    /* flip the pane when hovered */
+    .flip-container:hover .flipper, .flip-container.hover .flipper {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+    }
+
+  .flip-front, .flip-back {
+    width: 100%
+    height: 100%
+  }
+
+  /* flip speed goes here */
+  .flipper {
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+  .flip-front, .flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* flip-front pane, placed above back */
+  .flip-front {
+    z-index: 2;
+  }
+
+  /* back, initially hidden pane */
+  .flip-back {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+  }
+
+  .student-info {
+    background-color: #DDD;
+    text-align: center;
+  }
+
+  .student-info div, .student-info h3 {
+    word-wrap: break-word;
+    margin: 15px 8px 0 8px;
+
+  }
+
+</style>
+
+{% endblock %}
 
 {% block content %}
 
+
 <div id="title" class="row">
-    <div class="twelve columns text-center">
-        <h1 class="red">Students.objects.all()</h1>
-    </div>
+  <div class="twelve columns text-center">
+    <h1 class="red">Our Students</h1>
+  </div>
 </div>
 
-<div class="row title">
-    <div class="twelve columns text-center">
-        <h1>&lt;Coming Soon/&gt;</h1>
+{#
+{% for student_batch in students|batch(4) %}
+  <div class="row">
+  {% for student in student_batch %}
+    <div class="three columns student">
+      <a href="#" class="th">
+        <div class="th-inner">
+          <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
+        </div>
+      </a>
     </div>
-</div>
+  {% endfor %}
+  </div>
+{% endfor %}
+#}
+
+
+{% for student_batch in students|batch(4) %}
+  <div class="row">
+  {% for student in student_batch %}
+    <div class="three columns student">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+
+          <div class="flip-front">
+            <a href="{{ student.absolute_url() }}" class="th">
+              <div class="th-inner">
+                <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
+              </div>
+            </a>
+          </div>
+
+          <div class="flip-back student-info">
+            <a href="{{ student.absolute_url() }}" class="th">
+              <h3 class="student-name">{{ student.name }}</h3>
+              <div class="student-email">{{ student.email }}</div>
+              <div class="student-bio">{{ student.bio }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+{% endfor %}
 
 {% endblock %}
 

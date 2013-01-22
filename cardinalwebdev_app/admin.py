@@ -15,3 +15,4 @@ class ApplicationReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(Application, ApplicationAdmin)
 admin.site.register(ApplicationReview, ApplicationReviewAdmin)
+admin.site.register(Student)

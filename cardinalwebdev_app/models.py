@@ -41,3 +41,19 @@ class ApplicationReview(Base):
         return self.charlie_decision + self.kevin_decision + self.kingston_decision
 
     total = property(_total)
+
+class Student(Base):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    phone = models.CharField(max_length=11)
+    bio = models.TextField(blank=True)
+    photo = models.URLField(null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def base_url(self):
+        return '/student/%d' % self.id
+
+    def absolute_url(self):
+        return '%s/' % self.base_url()
