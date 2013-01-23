@@ -83,6 +83,13 @@ def submit_review(request):
 #   STUDENT FUNCTIONS
 # -----------------------------------------
 
+def student(request, student_id):
+    try:
+        student = Student.objects.get(id=student_id)
+    except Student.DoesNotExist:
+        return redirect('students')
+    return render(request, "student.html", locals())
+
 def students(request):
     students = Student.objects.all()
     return render(request, "students.html", locals())

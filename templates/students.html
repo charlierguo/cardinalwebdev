@@ -139,23 +139,6 @@
   </div>
 </div>
 
-{#
-{% for student_batch in students|batch(4) %}
-  <div class="row">
-  {% for student in student_batch %}
-    <div class="three columns student">
-      <a href="#" class="th">
-        <div class="th-inner">
-          <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
-        </div>
-      </a>
-    </div>
-  {% endfor %}
-  </div>
-{% endfor %}
-#}
-
-
 {% for student_batch in students|batch(4) %}
   <div class="row">
   {% for student in student_batch %}
