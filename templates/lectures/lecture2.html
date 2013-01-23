@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+    <link href='http://fonts.googleapis.com/css?family=Fruktur' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{ MEDIA_URL }}reveal/css/reveal.min.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}reveal/css/theme/apple.css" id="theme">
 
@@ -26,6 +27,45 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+            <style type='text/css'>
+            div.divContainer {
+                border: 1px solid white;
+                padding: 10px;
+                position: relative;
+            }
+            div.emph {
+                border: 1px solid white;
+            }
+
+            div.div-inline {
+                display: inline;
+            }
+            div.floats div {
+                margin: 20px;
+                padding: 20px;
+                float: left;
+            }
+            .pseudo a:visited {
+                color: #00FF00 !important;
+            }
+            .pseudo a:hover {
+                color: #FFFFFF !important;
+            }
+            .pseudo a:active {
+                color: #FF0000 !important;
+            }
+            #myhappydiv .div-content {
+                background-color: #00FF00;
+                padding: 10px;
+            }
+            .div-content {
+                background-color: #FF0000 !important;
+            }
+            .css3-content div {
+                margin: 50px;
+            }
+        </style>
   </head>
 
   <body>
@@ -57,6 +97,259 @@
         </section>
 
 
+          <section>
+                    <h1>Advanced CSS</h1>
+                    <h3>A introduction to fancier CSS techniques</h3>
+                </section>
+                <section>
+                    <h2>Display</h2>
+                    <ul>
+                        <li>display: none</li>
+                        <li>display: inline</li>
+                        <li>display: block</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>Display None</h2>
+                        <p>Takes element out of the layout.</p>
+                        <p><em>e.g. if we apply <code>display: none</code> to paragraph 2</em></p>
+                        <hr />
+                        <p>Paragraph 1</p>
+                        <p>Paragraph 2</p>
+                        <p>Paragraph 3</p>
+                    </section>
+                    <section>
+                        <h2>Display None</h2>
+                        <p>It vanishes from the layout.</p>
+                        <hr />
+                        <p>Paragraph 1</p>
+                        <p style="display: none">Paragraph 2</p>
+                        <p>Paragraph 3</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Display Block</h2>
+                    <p>Causes the element to be rendered as a block. Divs are by default <code>display: block</code></p>
+                    <hr />
+                    <div class="emph">Div 1</div>
+                    <div class="emph">Div 2</div>
+                    <div class="emph">Div 3</div>
+                </section>
+                <section>
+                    <h2>Display Inline</h2>
+                    <p>But if we apply <code>display: inline</code> to each of the divs...</p>
+                    <hr />
+                    Here is some text:
+                    <div class="emph div-inline">Div 1</div>
+                    <div class="emph div-inline">Div 2</div>
+                    <div class="emph div-inline">Div 3</div>
+                </section>
+                <section>
+                    <h2>Position</h2>
+                    <ul>
+                        <li>position: static</li>
+                        <li>position: relative</li>
+                        <li>position: absolute</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Position Static</h2>
+                    <p>The default position for elements</p>
+                    <hr />
+                    <div class="divContainer">
+                        <div class="emph">Element 1</div>
+                        <div class="emph">Element 2</div>
+                        <div class="emph">Element 3</div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Position Absolute</h2>
+                    <p>But if we apply <code>position: absolute; top: 15px; left: 15px;</code> to element 2...</p>
+                    <hr />
+                    <div class="divContainer">
+                        <div class="emph">Element 1</div>
+                        <div class="emph" style="position: absolute; top: 15px; left: 15px">Element 2</div>
+                        <div class="emph">Element 3</div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Absolute Positioning</h2>
+                    <p>Key facts:</p>
+                    <ul>
+                        <li>Positions the element relative to its first ancestor that is not statically positioned</li>
+                        <li>Use top, left, bottom, right to position</li>
+                        <li>Takes the element out of the layout so following elements will take its place</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Relative to what?</h2>
+                    <pre><code>
+&lt;div style=&quot;position:relative&quot;&gt; &lt;!-- this one --&gt;
+    &lt;div style="margin: 10px"&gt;
+        &lt;p&gt;Blah blah blah...&lt;/p&gt;
+        &lt;div style=&quot;position: absolute&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Relative Positioning</h2>
+                    <p>Positions the element relative to where it would be normally</p>
+                    <p><em>e.g. <code>position: relative; top: 15px; left: 15px;</code></em></p>
+                    <hr />
+                    <div class="divContainer">
+                        <div class="emph">Element 1</div>
+                        <div class="emph" style="position: relative; top: 15px; left: 15px">Element 2</div>
+                        <div class="emph">Element 3</div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Relative Positioning</h2>
+                    <p>Key facts:</p>
+                    <ul>
+                        <li>It's relative to its original position</li>
+                        <li>Use top, left, bottom, right to position as with absolute</li>
+                        <li>Pretends as if the element was where it was originally and layout continues normally</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Float</h2>
+                    <ul>
+                        <li>float: left</li>
+                        <li>float: right</li>
+                        <li>clear: both</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Floats</h2>
+                    <p>Floats are a way of taking an element out of the layout flow and moving it all the way right or left (before the edge of its container/next floated element)</p>
+                    <p><em>e.g. <code>float: left</code> on the div</em></p>
+                    <hr />
+                    <div class="divContainer">
+                        <p>
+                            Mojito dalwhinnie, cactus jack balvenie cardhu caipirinha lagavulin bombay bananarita martell harvey's bristol cream glenfiddich.
+                        </p>
+                        <img class="emph" style="float:left" src="http://placekitten.com/150/150" />
+                        <p>
+                            Culto a la vida irish mist toro rojo montgomery chocolate soldier, old grand dad glen scotia the last word.
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h2>Clearing</h2>
+                    <p>Clearing will make sure there's no floats overflowing into the element, e.g.</p>
+                    <div class="divContainer">
+                        <p>
+                            Mojito dalwhinnie, cactus jack balvenie cardhu caipirinha lagavulin bombay bananarita martell harvey's bristol cream glenfiddich.
+                        </p>
+                        <img class="emph" style="float:left" src="http://placekitten.com/150/150" />
+                        <p>
+                            Culto a la vida irish mist toro rojo montgomery chocolate soldier, old grand dad glen scotia the last word.
+                        </p>
+                        <div style="clear: both">
+                            This div has a <code>clear: both</code> applied to it.
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Many floats</h2>
+                    <p>You can have multiple floats which will stack up</p>
+                    <hr />
+                    <div class="floats">
+                        <div class="emph">Div 1</div>
+                        <div class="emph">Div 2</div>
+                        <div class="emph">Div 3</div>
+                        <div class="emph">Div 4</div>
+                        <div class="emph">Div 5</div>
+                        <div class="emph">Div 6</div>
+                        <div class="emph">Div 7</div>
+                    </div>
+                </section>
+                <section>
+                    <h2>CSS Pseudo-classes</h2>
+                    <p>They're a way to select a specific subset of elements</p>
+                    <ul>
+                        <li>a:visited</li>
+                        <li>a:hover</li>
+                        <li>a:active</li>
+                        <li>li:first-child</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>CSS Pseudo-classes Example</h2>
+                    <pre><code>
+                        .pseudo a:visited {
+                            color: #00FF00;
+                        }
+                        .pseudo a:hover {
+                            color: #FFFFFF;
+                        }
+                        .pseudo a:active {
+                            color: #FF0000;
+                        }
+                    </code></pre>
+                    <hr />
+                    <div class="pseudo">
+                        <script type="text/javascript">
+                            var randId = Math.floor(Math.random() * 1000);
+                            document.write("<a href='http://www.google.com/?rand=" + randId + "'>Click Me!</a>");
+                        </script>
+                    </div>
+                </section>
+                <section>
+                    <h2>!important</h2>
+                    <p>Create rules that take precedence over everything</p>
+                    <p><strong>NB: Use very rarely!</strong></p>
+                    <pre><code>
+#myhappydiv .div-content {
+    background-color: #00FF00;
+    padding: 10px;
+}
+.div-content {
+    background-color: #FF0000 !important;
+}
+                    </code></pre>
+                    <hr />
+                    <div id="myhappydiv">
+                        <div class="div-content">
+                            Hi there!
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Background Image</h2>
+                    <pre><code>background-image: url('http://placekitten.com/100/100')</code></pre>
+                    <hr />
+                    <div style="background-image: url('http://placekitten.com/100/200'); padding: 50px" class="emph">Kittens!</div>
+                </section>
+                <section>
+                    <h2>Background Repeat</h2>
+                    <pre><code>background-repeat: none</code></pre>
+                    <hr />
+                    <div style="background-repeat: no-repeat;background-image: url('http://placekitten.com/100/200'); padding: 50px" class="emph">Kittens!</div>
+                </section>
+                <section>
+                    <h2>Fonts, fonts, fonts!</h2>
+                    <p><a href="http://www.google.com/webfonts">Google Web Fonts</a> is a good source of web fonts.</p>
+                    <p>Simply import with a snippet:</p>
+                    <pre><code>&lt;link href='http://fonts.googleapis.com/css?family=Fruktur' rel='stylesheet' type='text/css' /&gt;</code></pre>
+                    <p>And then, style your page accordingly:</p>
+                    <pre><code>font-family: 'Fruktur', cursive;</code></pre>
+                    <p style="font-family: 'Fruktur', cursive;">Fancy times :)</p>
+                </section>
+
+                <section>
+                    <h2>And from here... CSS properties:</h2>
+                    <div class="css3-content">
+                        <div class="emph" style="text-shadow: 0.2em 0.2em #333">text-shadow</div>
+                        <div class="emph" style="box-shadow: 10px 10px 5px #222">box-shadow</div>
+                        <div class="emph" style="border-radius: 10px">border-radius</div>
+                    </div>
+                </section>
+
+
       </div>
     </div>
 
@@ -73,6 +366,7 @@
         progress: true,
         history: true,
         center: true,
+        rollingLinks: false,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
