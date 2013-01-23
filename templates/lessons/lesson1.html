@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% endblock %}
+{% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+
+<div id="title" class="row">
+    <div class="nine columns centered text-center">
+        <h2 class="red">Lesson 1</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="nine columns centered">
+        <h3><a href="{% url lecture 1 %}">Lecture Notes</a></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="nine columns centered">
+        <h3>Resources</h3>
+        <ul>
+            <li>
+                <a href="http://colorschemedesigner.com/" target="_blank">
+                    Color Scheme Designer
+                </a>
+            </li>
+            <li>
+                <a href="http://www.lipsum.com/" target="_blank">
+                    Lorem Ipsum Generator
+                </a>
+            </li>
+            <li>
+                <a href="http://border-radius.com/" target="_blank">
+                    Border Radius Generator
+                </a>
+            </li>
+            <li>
+                <a href="http://www.pearsonified.com/typography/" target="_blank">
+                    Golden Ratio Typography Calculator
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}{% endblock %}

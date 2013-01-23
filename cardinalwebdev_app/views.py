@@ -80,6 +80,17 @@ def submit_review(request):
     return redirect('review')
 
 # -----------------------------------------
+#   LESSON FUNCTIONS
+# -----------------------------------------
+
+def lessons(request):
+    return render(request, "lessons/index.html", locals())
+
+def lesson(request, lesson_id):
+    return render(request, "lessons/lesson%s.html" % lesson_id, locals())
+
+
+# -----------------------------------------
 #   STUDENT FUNCTIONS
 # -----------------------------------------
 

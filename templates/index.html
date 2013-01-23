@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<a href="{# {% url students %} #}">
+{# <a href="{% url students %}"> #}
     <div id="topbar">
         <div class="row">
             <div class="twelve columns text-center">
@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-</a>
+{# </a> #}
 
 <div id="title" class="row">
     <div class="twelve columns text-center">
@@ -29,7 +29,7 @@
 
 <div class="row">
     <div class="six columns mobile-four centered">
-        <button class="button radius alert apply" disabled>Application Over</button>
+        <a href="{% url lessons %}" class="button radius lessons">View Lessons</a>
     </div>
 </div>
 

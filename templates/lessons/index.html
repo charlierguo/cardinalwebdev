@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% endblock %}
+{% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+
+<div id="title" class="row">
+    <div class="nine columns centered text-center">
+        <h2 class="red">Cardinal Web Dev Lessons</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="nine columns centered">
+        <h3><a href="{% url lesson 1 %}">Lesson 1 - Beginner HTML/CSS</a></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="nine columns centered">
+        <h3><a href="{% url lesson 2 %}">Lesson 2 - Advanced CSS, Bootstrap, and Visual Design</a></h3>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}{% endblock %}

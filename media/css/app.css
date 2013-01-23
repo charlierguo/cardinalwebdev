@@ -142,6 +142,21 @@ input:focus, textarea:focus {
 }
 
 /* -----------------------------------------
+   LESSON BUTTON STYLES
+----------------------------------------- */
+
+.button.lessons {
+    width: 100%;
+    background-color: #1E8DC4 !important;
+    font-size: 4.291015625rem;
+    padding: 25px;
+}
+
+.button.lessons:hover {
+    background-color: #1A7CAC !important;
+}
+
+/* -----------------------------------------
    TOP INFO STYLES
 ----------------------------------------- */
 
