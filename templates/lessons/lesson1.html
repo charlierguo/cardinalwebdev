@@ -1,8 +1,16 @@
 {% extends "base.html" %}
-{% block title %}{{ super() }}{% endblock %}
+{% block title %}Lesson 1 | {{ super() }}{% endblock %}
 {% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
 
-{% block extra_head %}{% endblock %}
+{% block extra_head %}
+<style type="text/css">
+
+    li {
+        font-size: 24px;
+    }
+
+</style>
+{% endblock %}
 
 {% block content %}
 
@@ -14,13 +22,18 @@
 
 <div class="row">
     <div class="nine columns centered">
-        <h3><a href="{% url lecture 1 %}">Lecture Notes</a></h3>
+        <h2>Main Resources</h2>
+        <ul>
+            <li>
+                <a href="{% url lecture 11 %}">Lecture Slides</a>
+            </li>
+        </ul>
     </div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top: 50px;">
     <div class="nine columns centered">
-        <h3>Resources</h3>
+        <h2>Resources Used In Class</h2>
         <ul>
             <li>
                 <a href="http://colorschemedesigner.com/" target="_blank">
@@ -43,7 +56,6 @@
                 </a>
             </li>
         </ul>
-    </div>
 </div>
 
 {% endblock %}

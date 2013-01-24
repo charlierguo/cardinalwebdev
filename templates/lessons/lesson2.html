@@ -1,8 +1,17 @@
 {% extends "base.html" %}
-{% block title %}{{ super() }}{% endblock %}
+{% block title %}Lesson 2 | {{ super() }}{% endblock %}
 {% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
 
-{% block extra_head %}{% endblock %}
+{% block extra_head %}
+<style type="text/css">
+
+    li {
+        font-size: 24px;
+    }
+
+</style>
+
+{% endblock %}
 
 {% block content %}
 
@@ -14,7 +23,85 @@
 
 <div class="row">
     <div class="nine columns centered">
-        <h3><a href="{% url lecture 2 %}">Lecture Notes</a></h3>
+        <h2>Main Resources</h2>
+        <ul>
+            <li>
+                <a href="{% url lecture 2 %}">Lecture Slides</a>
+            </li>
+            <li>
+                <a href="http://learn.shayhowe.com/html-css" target="_blank">A Beginner's Guide to HTML &amp; CSS</a> - Fantastic resource to review everything we covered in Lesson 1 and 2 and more.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 50px;">
+    <div class="nine columns centered">
+        <h2>Resources Used In Class</h2>
+        <ul>
+            <li>
+                <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+            </li>
+            <li>
+                <a href="http://bootswatch.com/" target="_blank">Bootswatch</a> - Free Bootrap themes
+            </li>
+            <li>
+                <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a> - A bajillion extra icons
+            </li>
+            <li>
+                <a href="http://www.bootstrapcdn.com/" target="_blank">Bootstrap CDN</a> - CSS files hosted on the "cloud"
+            </li>
+            <hr/>
+            <li>
+                <a href="http://codepen.io/kingston/pen/FesHG" target="_blank">Kingston's Code Pen</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/a/imkevinxu.com/document/d/1MApQx0r09hKScKW2_0NWidkCCPd1FS12XnCLc3jYVUo/edit" target="_blank">Kingston's Google Doc</a>
+            </li>
+            <hr/>
+            <li>
+                <a href="http://bl.ocks.org/4624876" target="_blank"><strong>Kevin's HTML/CSS File</strong></a>
+            </li>
+            <li>
+                <a href="http://www.google.com/webfonts/" target="_blank">Google Web Fonts</a>
+            </li>
+            <li>
+                <a href="http://www.pearsonified.com/typography/" target="_blank">Golden Ratio Line Height Calculator</a>
+            </li>
+            <li>
+                <a href="http://subtlepatterns.com/" target="_blank">Subtle Patterns</a>
+            </li>
+            <li>
+                <a href="http://kaikkonendesign.fi/typography/" target="_blank">Interactive Typography Examples</a>
+            </li>
+            <li>
+                <a href="http://placekitten.com/" target="_blank">Kitties!</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 50px;">
+    <div class="nine columns centered">
+        <h2>Additional Resources</h2>
+        <ul>
+            <li>
+                <a href="http://webdesign.tutsplus.com/tutorials/workflow-tutorials/faster-htmlcss-workflow-with-chrome-developer-tools/" target="_blank">Webkit Inspector Tutorial</a>
+            </li>
+            <li>
+                <a href="https://developers.google.com/chrome-developer-tools/docs/elements" target="_blank">Webkit Inspector Documentation</a>
+            </li>
+            <hr/>
+            <li>
+                <a href="https://speakerdeck.com/sachag/design-by-the-numbers" target="_blank">Quick summary of good web design tips</a>
+            </li>
+            <li>
+                <a href="http://webdesign.tutsplus.com/" target="_blank">Web design tutorials</a>
+            </li>
+            <li>
+                <a href="http://www.amazon.com/Design-Hackers-Reverse-Engineering-Beauty/dp/1119998956" target="_blank">Design for Hackers Book</a>
+            </li>
+        </ul>
     </div>
 </div>
 

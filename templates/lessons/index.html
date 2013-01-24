@@ -2,7 +2,27 @@
 {% block title %}{{ super() }}{% endblock %}
 {% block meta_description %}Web development crash course in 9 weeks. You will learn how to build your own website with HTML, Javascript, and Python.{% endblock %}
 
-{% block extra_head %}{% endblock %}
+{% block extra_head %}
+<style type="text/css">
+
+    h3 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    a .light {
+        color: #333;
+    }
+
+    a:hover .light {
+        color: #999;
+    }
+
+</style>
+
+
+{% endblock %}
 
 {% block content %}
 
@@ -14,13 +34,13 @@
 
 <div class="row">
     <div class="nine columns centered">
-        <h3><a href="{% url lesson 1 %}">Lesson 1 - Beginner HTML/CSS</a></h3>
+        <h3><a href="{% url lesson 1 %}">Lesson 1 - <span class="light">Beginner HTML/CSS</span></a></h3>
     </div>
 </div>
 
 <div class="row">
     <div class="nine columns centered">
-        <h3><a href="{% url lesson 2 %}">Lesson 2 - Advanced CSS, Bootstrap, and Visual Design</a></h3>
+        <h3><a href="{% url lesson 2 %}">Lesson 2 - <span class="light">Advanced CSS, Bootstrap, and Visual Design</span></a></h3>
     </div>
 </div>
 
