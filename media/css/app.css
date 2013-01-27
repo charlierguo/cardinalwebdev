@@ -16,7 +16,10 @@
    BASE STYLES
 ----------------------------------------- */
 
-.row { width: 940px; }
+.row {
+    width: 940px;
+    margin-bottom: 20px;
+}
 
 html, body {
     width: 100%;
@@ -96,7 +99,7 @@ input:focus, textarea:focus {
 ----------------------------------------- */
 
 #title {
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 
 #title h1, #title h2, #title h3 {
@@ -111,7 +114,7 @@ input:focus, textarea:focus {
 
 #title h2 {
     font-size: 6.153846154rem;
-    margin-bottom: 6.153846154rem;
+    /*margin-bottom: 3.153846154rem;*/
 }
 
 #title h3 {
