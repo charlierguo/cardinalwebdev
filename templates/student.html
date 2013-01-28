@@ -9,21 +9,94 @@
     margin-top: 30px;
   }
 
+  .th {
+    display: block;
+    border: solid 4px #fff;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
+    -o-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    transition-duration: 300ms;
+  }
+
+  .th img {
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    -ms-border-radius: none;
+    -o-border-radius: none;
+    border-radius: none;
+  }
+
+  .th-inner {
+    max-height: 200px;
+    max-width: 200px;
+    overflow: hidden;
+  }
+
+  .student-info .th {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    border-radius: 100px;
+    margin: 0 auto;
+  }
+
+  .student-info {
+    text-align: center;
+  }
+
   h3.student-header {
     font-size: 20px;
     border-bottom: 2px solid #333;
     margin-top: 25px;
   }
 
-  .social-media {
-    margin-top: 30px;
-  }
-
-  .email, .twitter, .github, .linkedin {
+  .email, .twitter, .github, .linkedin, .facebook {
     font-size: 35px;
     text-align: center;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     color: black;
+    display: inline;
+    margin: 0 10px;
+  }
+
+  .github a, .twitter a, .facebook a, .linkedin a { color: #AAAAAA; }
+  .github a:hover { color: #333333; }
+  .linkedin a:hover { color: #007bb6; }
+  .twitter a:hover { color: #00a0d1; }
+  .facebook a:hover { color: #3b5998; }
+
+  .landing-page iframe {
+    width: 100%;
+    height: 400px;
+  }
+
+  .gist .data {
+    width: 100%;
+    height: 400px;
+  }
+
+  .gist .highlight {
+    background-color: #FFF;
   }
 
 </style>
@@ -33,31 +106,83 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="three columns photo-column">
-    <a href="#" class="th">
-      <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
-    </a>
+<div class="row student-info">
+    <div class="photo">
+      <a href="#" class="th">
+        <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
+      </a>
+    </div>
+
+    <div class="info">
+      <h3 class="name">{{ student.name }}</h3>
+      <p class="major">Computer Science '13</p>
+    </div>
 
     <div class="social-media">
-      <div class="email">
-        <a href="#"><i class="icon-envelope-alt"></i></a>
-      </div>
+
       <div class="twitter">
-        <a href="#"><i class="icon-twitter"></i></a>
+        <a href="https://twitter.com/{{ student.twitter }}"><i class="icon-twitter"></i>
+          <span class="username"></span>
+        </a>
+      </div>
+
+
+
+      <div class="github">
+        <a href="https://github.com/{{ student.github }}"><i class="icon-github-alt"></i>
+          <span class="username"></span>
+        </a>
+      </div>
+
+    </div>
+</div>
+
+<div class="row student-bio">
+    <h3 class="student-header">Who I Am</h3>
+    <div class="">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+    </div>
+</div>
+
+<div class="row landing-page">
+    <h3 class="student-header"><a href="">Landing Page</a></h3>
+    <script src="https://gist.github.com/4624876.js"></script>
+    <iframe src="http://bl.ocks.org/d/4624876/" />
+</div>
+
+
+<!--div class="row">
+  <div class="three columns photo-column">
+    <div class="social-media">
+      <div class="twitter">
+        <a href="#"><i class="icon-twitter"></i>
+          <span class="username"></span>
+        </a>
+      </div>
+      <div class="facebook">
+        <a href="#"><i class="icon-facebook-sign"></i>
+          <span class="username"></span>
+        </a>
       </div>
       <div class="github">
-        <a href="#"><i class="icon-github-alt"></i></a>
+        <a href="#"><i class="icon-github-alt"></i>
+          <span class="username"></span>
+        </a>
       </div>
       <div class="linkedin">
-        <a href="#"><i class="icon-linkedin"></i></a>
+        <a href="#"><i class="icon-linkedin-sign"></i>
+          <span class="username"></span>
+        </a>
       </div>
     </div>
   </div>
   <div class="nine columns info-column">
     <h2>{{ student.name }}</h2>
 
-    <h3 class="student-header">Who Am I</h3>
+    <h3 class="student-header">Who I Am</h3>
     <div class="student-info">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -92,7 +217,7 @@
     </div>
 
   </div>
-</div>
+</div-->
 
 
 {% endblock %}
