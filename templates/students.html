@@ -10,7 +10,7 @@
   }
 
 
-  .th-inner {
+/*  .th-inner {
     max-height: 200px;
     max-width: 200px;
     overflow: hidden;
@@ -53,78 +53,63 @@
     -ms-border-radius: none;
     -o-border-radius: none;
     border-radius: none;
+  }*/
+
+  .polaroid {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #A1A1A1;
+    -moz-box-shadow:    0px 2px 7px 0px #444;
+    -webkit-box-shadow: 0px 2px 7px 0px #444;
+    box-shadow:         0px 2px 7px 0px #444;
   }
 
-  .flip-container {
-    perspective: 1000;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    width: 200px;
-    height: 200px;
+  .rotate {
+    -webkit-transform: rotate(-1.8deg);
+    -moz-transform: rotate(-1.8deg);
+    -ms-transform: rotate(-1.8deg);
+    -o-transform: rotate(-1.8deg);
   }
-    /* flip the pane when hovered */
-    .flip-container:hover .flipper, .flip-container.hover .flipper {
-      transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
+
+.bounce {
+    -webkit-animation: bounce 1s;
+    -moz-animation: bounce 1s;
+    -o-animation: bounce 1s;
+    animation: bounce 1s;
+}
+
+@-webkit-keyframes bounce {
+    to {
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
     }
+}
 
-  .flip-front, .flip-back {
-    width: 100%
-    height: 100%
-  }
+@-moz-keyframes bounce {
+    0% { -moz-transform: scale(1.1); opacity: 1 }
+    50% { -moz-transform: scale(1.6); opacity: .7; }
+    60% { -moz-transform: scale(0.6); opacity: 1 }
+    80% { -moz-transform: scale(0.95) }
+    100% { -moz-transform: scale(0.85) }
+}
 
-  /* flip speed goes here */
-  .flipper {
-    transition: 0.6s;
-    -webkit-transition: 0.6s;
-    -moz-transition: 0.6s;
-    -o-transition: 0.6s;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
+@-o-keyframes bounce {
+    0% { -o-transform: scale(1.1); opacity: 1 }
+    50% { -o-transform: scale(1.6); opacity: .7; }
+    60% { -o-transform: scale(0.6); opacity: 1 }
+    80% { -o-transform: scale(0.95) }
+    100% { -o-transform: scale(0.85) }
+}
 
-    position: relative;
-  }
-
-  /* hide back of pane during swap */
-  .flip-front, .flip-back {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  /* flip-front pane, placed above back */
-  .flip-front {
-    z-index: 2;
-  }
-
-  /* back, initially hidden pane */
-  .flip-back {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-  }
-
-  .student-info {
-    background-color: #DDD;
-    text-align: center;
-  }
-
-  .student-info div, .student-info h3 {
-    word-wrap: break-word;
-    margin: 15px 8px 0 8px;
-
-  }
+@keyframes bounce {
+    0% { transform: scale(1.1); opacity: 1 }
+    50% { transform: scale(1.6); opacity: .7; }
+    60% { transform: scale(0.6); opacity: 1 }
+    80% { transform: scale(0.95) }
+    100% { transform: scale(0.85) }
+}
 
 </style>
 
@@ -141,30 +126,21 @@
 
 {% for student_batch in students|batch(4) %}
   <div class="row">
-  {% for student in student_batch %}
-    <div class="three columns student">
-      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-        <div class="flipper">
+    {% for student in student_batch %}
+      <div class="three columns">
 
-          <div class="flip-front">
-            <a href="{{ student.absolute_url() }}" class="th">
-              <div class="th-inner">
-                <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
-              </div>
-            </a>
-          </div>
+        <div class="polaroid rotate">
 
-          <div class="flip-back student-info">
-            <a href="{{ student.absolute_url() }}" class="th">
-              <h3 class="student-name">{{ student.name }}</h3>
-              <div class="student-email">{{ student.email }}</div>
-              <div class="student-bio">{{ student.bio }}</div>
-            </a>
-          </div>
+          <a href="{{ student.absolute_url() }}">
+            <img src="{% if student.photo %}{{ student.photo }}{% else %}http://placehold.it/300x300{% endif %}" />
+            <h3 class="student-name">{{ student.name }}</h3>
+            <div class="student-bio">{{ student.bio }}</div>
+          </a>
+
         </div>
+
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 {% endfor %}
 
