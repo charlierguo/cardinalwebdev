@@ -46,16 +46,8 @@ class Student(Base):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     phone = models.CharField(max_length=11)
-
-    major = models.CharField(max_length=255, blank=True)
-    quote = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
     photo = models.URLField(null=True, blank=True)
-
-    # Social Media Usernames
-    twitter = models.CharField(max_length=255, blank=True)
-    github = models.CharField(max_length=255, blank=True)
-    facebook = models.CharField(max_length=255, blank=True)
 
     def __unicode__(self):
         return self.name
